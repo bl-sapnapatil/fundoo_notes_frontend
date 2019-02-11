@@ -1,0 +1,43 @@
+<div fxFlex="80" fxLayoutAlign="center center">
+  <mat-card class="center" fxFlex="50">
+    <mat-card-title>fundooNotes</mat-card-title>
+    <mat-card-title>create your fundoo account</mat-card-title>
+
+    <div fxLayout = "row" fxLayoutGap ="5%">
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Firstname</mat-label>
+        <input matInput placeholder="Firstname">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Lastname</mat-label>
+        <input matInput placeholder="Lastname">
+      </mat-form-field>
+    </div>
+
+    <div class="size" fxLayout="column">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout = "row"  fxLayoutGap ="5%">
+      <mat-form-field appearance="outline">
+        <mat-label>password</mat-label>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'password'">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>confirm password</mat-label>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'password'">
+      </mat-form-field>
+    </div>
+
+    <div class="example-button-row">
+      <button mat-raised-button color="primary">Register</button>
+    </div>
+
+  </mat-card>
+</div>
