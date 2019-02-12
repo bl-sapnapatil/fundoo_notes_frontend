@@ -16,6 +16,10 @@ import { ForgotpasswordComponent } from './component/forgotpassword/forgotpasswo
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { EmailVerificationComponent } from './component/email-verification/email-verification.component';
 import { HttpService } from './service/http.service';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -30,14 +34,17 @@ import { HttpService } from './service/http.service';
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
-  
+    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,
     MatInputModule,
     BrowserAnimationsModule,
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
+
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
