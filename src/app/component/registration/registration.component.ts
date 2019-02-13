@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, Validators, FormControl } from '@angular/forms';
-import { Registeruser } from 'src/app/model/registermodel';
 import { HttpService } from 'src/app/service/http.service';
-import { log } from 'util';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -11,77 +10,64 @@ import { log } from 'util';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  showSucessMessage: boolean;
-  serverErrorMessages: any;
-      
-  constructor(private httpService:HttpService) { }
- 
+
+
+  constructor(private httpService: HttpService, private snackBar: MatSnackBar) { }
+
 
   ngOnInit() {
-  
+
   }
   email = new FormControl('', [Validators.required, Validators.email]);
-  Firstname=new FormControl('', [Validators.required]);
-  Lastname=new FormControl('', [Validators.required]);
-  password=new FormControl('', [Validators.required]);
-  confirmpassword =new FormControl('', [Validators.required]);
+  Firstname = new FormControl('', [Validators.required]);
+  Lastname = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required]);
+  confirmpassword = new FormControl('', [Validators.required]);
 
 
-  getErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-        this.email.hasError('email') ? 'Not a valid email' :
-            '';
-  }
   getFirstnameErrorMessage() {
-    return this.Firstname.hasError('required') ? 'You must enter a value' :
-        
-            '';
+    return this.Firstname.hasError('required') ? 'You must enter a value' : '';
   }
-  getLastnameErrorMessage(){
-    return this.Lastname.hasError('required') ? 'You must enter a value' :
-        
-            '';
+  getLastnameErrorMessage() {
+    return this.Lastname.hasError('required') ? 'You must enter a value' : '';
   }
-  getEmailErrorMessage(){
-    return this.password.hasError('required') ? 'You must enter a value' :
-        
-            '';
+  getEmailErrorMessage() {
+    return this.email.hasError('required') ? 'You must enter a value' : '';
 
   }
-  getpasswordErrorMessage(){
-    return this.confirmpassword.hasError('required') ? 'You must enter a value' :
-        
-            '';
+  getpasswordErrorMessage() {
+    return this.password.hasError('required') ? 'You must enter a value' : '';
 
   }
-  getconfirmpasswordErrorMessage(){
-    return this.confirmpassword.hasError('required') ? 'You must enter a value' :
-        
-            '';
+  getconfirmpasswordErrorMessage() {
+    return this.confirmpassword.hasError('required') ? 'You must enter a value' : '';
   }
-  register(){
-    // console.log(this.email.value);
-    var reqbody = {
-      email:this.email.value,
-      firstName: this.Firstname.value,
-      lastName:  this.Lastname.value,
-      password: this.password.value,
+  register() {
+    try {
+      if (this.Firstname.value == "" || this.Lastname.value == "" || this.email.value == "") throw "fields cant be empty"
+      if (this.password.value == "" || this.confirmpassword.value == "") throw "password doesnt match"
+
+      var reqbody = {
+        email: this.email.value,
+        firstName: this.Firstname.value,
+        lastName: this.Lastname.value,
+        password: this.password.value,
       }
-    this.httpService.postUser(reqbody,'/registration').subscribe(
-          res => {
-            this.showSucessMessage = true;
-            console.log(res);
-            
-          },
-          err => {
-            if (err.status === 422) {
-              this.serverErrorMessages = err.error.join('<br/>');
-            }
-            else
-              this.serverErrorMessages = 'Something went wrong.Please contact admin.';
-          }
-        );
-  }
-  
+      this.httpService.postUser(reqbody, '/registration').subscribe(
+        res => {
+          console.log(res);
+          this.snackBar.open("successfull registration!!", "ok", { duration: 5000 });
+        },
+        err => {
+          console.log(err);
+          
+        });
+    }
+    catch{
+      this.snackBar.open("user details cannot be empty", "", { duration: 5000 });
+    }
 
   }
+
+
+}

@@ -18,6 +18,7 @@ import { EmailVerificationComponent } from './component/email-verification/email
 import { HttpService } from './service/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -43,7 +44,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     CommonModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
 
   ],
   providers: [HttpService],

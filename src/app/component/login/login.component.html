@@ -1,28 +1,29 @@
 <div fxFlex="90" fxLayoutAlign="center center">
   <mat-card class="center1" fxFlex="40">
-     
-     <mat-card-title>Login</mat-card-title>
-    <!-- <h1 md-dialog-title class="primary-color">Login</h1> -->
+
+    <mat-card-title>Login</mat-card-title>
 
     <div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder=" Enter Email">
+          <input matInput [formControl]="email" placeholder=" Enter Email">
+          <mat-error *ngIf="email.invalid">{{ getEmailErrorMessage()}}</mat-error>
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field appearance="outline">
           <mat-label>password</mat-label>
-          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'password'">
+          <input matInput [formControl]="password" placeholder="Enter your password" [type]="hide ? 'password' : 'password'">
+          <mat-error *ngIf="password.invalid">{{ getpasswordErrorMessage()}}</mat-error>
         </mat-form-field>
       </div>
-      </div>
+    </div>
 
-       <button mat-button color="primary">Login</button>
-      <button mat-button color="primary">create account</button>
-      <button mat-button color="primary">forgot password</button>
+    <button mat-button color="primary" (click)="login()">Login</button>
+    <button mat-button color="primary">create account</button>
+    <button mat-button color="primary">forgot password</button>
 
   </mat-card>
 </div>
