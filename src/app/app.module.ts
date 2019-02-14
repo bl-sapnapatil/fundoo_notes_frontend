@@ -14,12 +14,11 @@ import {CommonModule} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
-import { EmailVerificationComponent } from './component/email-verification/email-verification.component';
 import { HttpService } from './service/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
 
 
 @NgModule({
@@ -29,7 +28,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     LoginComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
-    EmailVerificationComponent,
+    VerifyemailComponent,
   ],
   imports: [
     BrowserModule,

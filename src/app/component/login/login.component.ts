@@ -15,18 +15,24 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required, Validators.email]); //Formcontrol for binding the value.
   password = new FormControl('', [Validators.required]);
 
+  //method to show email error message
   getEmailErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' : '';
 
   }
+  // method to show password errormessgae
   getpasswordErrorMessage() {
     return this.password.hasError('required') ? 'You must enter a value' : '';
 
   }
+  
   login() {
+    try{
+    if( this.email.value == "" || this.password.value == "") throw "fields cannot be empty"
+
     var reqbody = {
       email: this.email.value,
       password: this.password.value
@@ -34,6 +40,7 @@ export class LoginComponent implements OnInit {
     this.httpService.postUser(reqbody, '/login').subscribe(
       res => {
         console.log(res);
+        //snackbar to show messages.
         this.snackBar.open("you are logged in!!", "ok", { duration: 5000 });
       },
       err => {
@@ -43,20 +50,11 @@ export class LoginComponent implements OnInit {
         });
 
       });
+    }catch{
+      this.snackBar.open("email or password cannot be empty", "", { duration: 5000 });
+    }
 
   }
-
-  // openSnackBar() {
-  //   this.snackBar.open("you are logged in!!", "ok", {
-  //     duration: 500,
-  //   });
-  // }
-  //  openSnackBar2() {
-  //   this.snackBar.open("you have entered wrong credentials", "ok" ,{
-  //     duration: 500,
-  //   });
-  // }
-
 
 
 }

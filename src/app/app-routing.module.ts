@@ -4,27 +4,33 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { LoginComponent } from './component/login/login.component';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
-import { EmailVerificationComponent } from './component/email-verification/email-verification.component';
+import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
+
+//defined an array for our routes, named routes
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'login',  //login route is mapped with LoginComponent
     component: LoginComponent
   },
   {
-    path: 'register',
+    path: 'register', //register route is mapped with RegistrationComponent
     component: RegistrationComponent,
   },
   {
-    path: 'forgotpassword',
+    path: 'forgotpassword', //forgotpassword route is mapped with ForgotpasswordComponent
     component: ForgotpasswordComponent,
   },
   {
-    path: 'resetpassword/:token',
+    path: 'resetpassword/:token',  //resetpassword route is mapped with ResetpasswordComponent
     component: ResetpasswordComponent,
   },
   {
-    path: 'emailVerificaton/:token',
-    component: EmailVerificationComponent,
+    path: 'verifyemail/:token',   //verifyemail route is mapped with VerifyemailComponent
+    component:VerifyemailComponent,
+  },
+  {
+     path: '',    //a blank route i.e when no other route is found in the URL after the domain name, we are mapping it to LoginComponent.
+     component: LoginComponent,
   }
 
 

@@ -8,9 +8,9 @@ import { Loginuser } from '../model/loginmodel';
 })
 export class HttpService {
   url: string;
-  constructor(private http: HttpClient) { }
-
-  apiBaseUrl: 'http://localhost:3000'
+  constructor(private http: HttpClient) { } //dependency injection is passed as a argument inside constructor.
+  
+  apiBaseurl:'http://localhost:3000'
   selectedUser: Registeruser = {
     firstName: '',
     lastName: '',
@@ -26,21 +26,23 @@ export class HttpService {
   postUser(user, url) {
 
     var httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
+      headers: new HttpHeaders // create header object
+        ({
+          'Content-Type': 'application/json'
+        }),
     };
-    console.log(user);
+    // set header in your http request
     return this.http.post('http://localhost:3000' + url, user, httpOptions);
   }
 
-  resetpassword(data,purpose: string){
+  resetpassword(data, purpose: string) {
     let headers = new HttpHeaders({
-      'content-Type': 'application/json',
-      'token': localStorage.getItem('generatedToken')
+      'content-Type': 'application/json', //shows the type of content
+      'token': localStorage.getItem('generatedToken') //grabbing the token from localstorage
 
     });
-    return this.http.post('http://localhost:3000'+purpose,data,{headers: headers})
+    // set header in your http request
+    return this.http.post('http://localhost:3000' + purpose, data, { headers: headers })
 
 
   }

@@ -24,26 +24,35 @@ export class RegistrationComponent implements OnInit {
   password = new FormControl('', [Validators.required]);
   confirmpassword = new FormControl('', [Validators.required]);
 
-
+ //method to show firstname error message.
   getFirstnameErrorMessage() {
     return this.Firstname.hasError('required') ? 'You must enter a value' : '';
   }
+
+  //method to show lastname error message.
   getLastnameErrorMessage() {
     return this.Lastname.hasError('required') ? 'You must enter a value' : '';
   }
+
+  //method to show email error message.
   getEmailErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' : '';
 
   }
+
+  //method to show password error message.
   getpasswordErrorMessage() {
     return this.password.hasError('required') ? 'You must enter a value' : '';
 
   }
+
+  //method to show confirmpassword error message.
   getconfirmpasswordErrorMessage() {
     return this.confirmpassword.hasError('required') ? 'You must enter a value' : '';
   }
   register() {
     try {
+      //to check for empty fields.
       if (this.Firstname.value == "" || this.Lastname.value == "" || this.email.value == "") throw "fields cant be empty"
       if (this.password.value == "" || this.confirmpassword.value == "") throw "password doesnt match"
 
@@ -56,6 +65,7 @@ export class RegistrationComponent implements OnInit {
       this.httpService.postUser(reqbody, '/registration').subscribe(
         res => {
           console.log(res);
+          //snackBar is used to show message.
           this.snackBar.open("successfull registration!!", "ok", { duration: 5000 });
         },
         err => {

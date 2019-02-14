@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from 'src/app/service/http.service';
 import { NgForm, Validators, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-resetpassword',
@@ -10,7 +11,7 @@ import { NgForm, Validators, FormControl } from '@angular/forms';
 })
 export class ResetpasswordComponent implements OnInit {
 
-  constructor(private router: ActivatedRoute, private httpService: HttpService) { }
+  constructor(private router: ActivatedRoute, private httpService: HttpService,private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     let token = this.router.snapshot.params['token'];
@@ -30,18 +31,24 @@ export class ResetpasswordComponent implements OnInit {
   }
 
   reset() {
+    try{
+      if(this.password.value == "" || this.newpassword.value == "") throw "fields cannot be empty"
     var reqbody = {
-      newpassword: this.newpassword.value
+      password: this.newpassword.value
     }
     this.httpService.resetpassword(reqbody, '/resetpassword').subscribe(
       res => {
         console.log(res);
+        this.snackBar.open("password changed successfully!!", "ok", { duration: 5000 });
       },
       err => {
         console.log(err);
 
-
       });
+    }
+    catch{
+      this.snackBar.open("password and confirm password cannot be empty", "", { duration: 5000 });
+    }
 
   }
 
