@@ -19,6 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -29,6 +33,7 @@ import { VerifyemailComponent } from './component/verifyemail/verifyemail.compon
     ForgotpasswordComponent,
     ResetpasswordComponent,
     VerifyemailComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,9 @@ import { VerifyemailComponent } from './component/verifyemail/verifyemail.compon
     MatButtonModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatMenuModule
 
   ],
   providers: [HttpService],

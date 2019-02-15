@@ -5,6 +5,7 @@ import { LoginComponent } from './component/login/login.component';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
      path: '',    //a blank route i.e when no other route is found in the URL after the domain name, we are mapping it to LoginComponent.
      component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   }
 
 

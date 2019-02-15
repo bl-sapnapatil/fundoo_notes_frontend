@@ -1,56 +1,60 @@
 
-<div fxFlex="80" fxLayoutAlign="center center">
-  <mat-card class="center" fxFlex="50">
-    <mat-card-title>fundooNotes</mat-card-title>
-    <mat-card-title>create your fundoo account</mat-card-title>
-
-    <div fxLayout="row" fxLayoutGap="5%">
-
-      <mat-form-field appearance="outline">
-        <mat-label>Firstname</mat-label>
-        <input matInput [formControl]="Firstname" placeholder="Firstname">
-        <mat-error *ngIf="Firstname.invalid">{{getFirstnameErrorMessage()}}</mat-error>
-
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Lastname</mat-label>
-        <input matInput [formControl]="Lastname" placeholder="Lastname">
-        <mat-error *ngIf="Lastname.invalid">{{getLastnameErrorMessage()}}</mat-error>
-
-      </mat-form-field>
+  
+  <div fxFlex="80" fxLayoutAlign="center center">
+      <mat-card class="center" fxFlex="50">
+        <mat-card-title>fundooNotes</mat-card-title>
+        <mat-card-title>create your fundoo account</mat-card-title>
+    
+        <div fxLayout="row" fxLayoutGap="5%">
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Firstname</mat-label>
+            <input matInput [formControl]="Firstname" placeholder="Firstname">
+            <mat-error *ngIf="Firstname.invalid">{{getFirstnameErrorMessage()}}</mat-error>
+    
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Lastname</mat-label>
+            <input matInput [formControl]="Lastname" placeholder="Lastname">
+            <mat-error *ngIf="Lastname.invalid">{{getLastnameErrorMessage()}}</mat-error>
+    
+          </mat-form-field>
+        </div>
+    
+    
+        <div class="size" fxLayout="column">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [formControl]="email" placeholder="Email">
+            <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+    
+          </mat-form-field>
+        </div>
+    
+        <div fxLayout="row" fxLayoutGap="5%">
+          <mat-form-field appearance="outline">
+            <mat-label>password</mat-label>
+            <input matInput [formControl]="password" placeholder="Enter your password" [type]="hide ? 'password' : 'password'">
+            <mat-error *ngIf="password.invalid">{{getpasswordErrorMessage()}}</mat-error>
+    
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>confirm password</mat-label>
+            <input matInput placeholder="Enter your password" [formControl]="confirmpassword" [type]="hide ? 'password' : 'password'">
+            <mat-error *ngIf="confirmpassword.invalid">{{getconfirmpasswordErrorMessage()}}</mat-error>
+    
+          </mat-form-field>
+        </div>
+    
+        <div>
+          <button mat-raised-button color="primary" (click)="register()">Register</button>
+        </div>
+    
+      </mat-card>
+    
     </div>
-
-
-    <div class="size" fxLayout="column">
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput [formControl]="email" placeholder="Email">
-        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
-
-      </mat-form-field>
-    </div>
-
-    <div fxLayout="row" fxLayoutGap="5%">
-      <mat-form-field appearance="outline">
-        <mat-label>password</mat-label>
-        <input matInput [formControl]="password" placeholder="Enter your password" [type]="hide ? 'password' : 'password'">
-        <mat-error *ngIf="password.invalid">{{getpasswordErrorMessage()}}</mat-error>
-
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>confirm password</mat-label>
-        <input matInput placeholder="Enter your password" [formControl]="confirmpassword" [type]="hide ? 'password' : 'password'">
-        <mat-error *ngIf="confirmpassword.invalid">{{getconfirmpasswordErrorMessage()}}</mat-error>
-
-      </mat-form-field>
-    </div>
-
-    <div>
-      <button mat-raised-button color="primary" (click)="register()">Register</button>
-    </div>
-
-  </mat-card>
-</div>
-<!-- </form> -->
+    
+    
+    
