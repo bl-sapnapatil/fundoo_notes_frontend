@@ -23,6 +23,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSnackBarModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatListModule,
 
   ],
   providers: [HttpService],

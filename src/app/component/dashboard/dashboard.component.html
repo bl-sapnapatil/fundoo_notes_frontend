@@ -1,17 +1,82 @@
+ <mat-toolbar class="mat-toolbar">
+    <div fxFlex="4">
+        <button mat-icon-button>
+            <mat-icon class="menu" (click)="snav.toogle()">menu</mat-icon>
+        </button>
+    </div>
 
-<mat-toolbar>
-    <button mat-icon-button>
-        <mat-icon>menu</mat-icon>
-        <h1>FundooNotes</h1>
-    </button>
-    
-    <div fxFlex="50" fxLayout="row" fxLayoutAlign="space-evenly center">
-        <mat-form-field appearance="outline" [style.fontSize.px]="1">
-            <button mat-icon-button>
-                <mat-icon>search</mat-icon>
-            </button>
-        <input fxFlex= "90" matInput placeholder="search" [style.fontSize.px]="18" autocomplete="off">
-    </mat-form-field> 
+    <div fxFlex="17">
+        <h1 class="menu">FundooNotes</h1>
+    </div>
+
+    <div class="searchdiv" fxFlex="70" fxLayout="row" fxLayoutAlign="center center">
+        <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+        <input fxFlex="90" class="search" matInput placeholder="search" [style.fontSize.px]="18" autocomplete="off">
+    </div>
+    <div fxFlex="5" class="menu">
+        <button mat-icon-button>
+            <mat-icon>refresh</mat-icon>
+        </button>
+    </div>
+
+    <div fxFlex="5">
+        <button mat-icon-button>
+            <mat-icon class="menu">border_all</mat-icon>
+        </button>
+    </div>
+
+    <div fxFlex="15">
+        <button mat-icon-button>
+            <mat-icon class="menu">settings</mat-icon>
+        </button>
+    </div>
+
+    <div fxFlex="5">
+        <button mat-icon-button>
+            <mat-icon class="menu">apps</mat-icon>
+        </button>
+    </div>
+
+    <div fxFlex="5">
+        <button mat-icon-button>
+            <mat-icon class="menu">notifications</mat-icon>
+        </button>
+    </div>
+    <div>
+        <button mat-icon-button>
+            <mat-icon class="menu">account_circle</mat-icon>
+        </button>
     </div>
 
 </mat-toolbar>
+<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+        fixedTopGap="56">
+        <mat-nav-list>
+            <mat-list role="List">
+
+                <mat-list-item role="listitem">
+                    Note</mat-list-item>
+
+                <mat-list-item role="listitem">
+                    Reminders</mat-list-item>
+                            </mat-list>
+                        </mat-nav-list>
+                        </mat-sidenav>
+                        </mat-sidenav-container>
+
+                        <!-- <mat-drawer-container class="example-container" autosize>
+                                <mat-drawer #drawer class="example-sidenav" mode="side">
+                                  <p>Auto-resizing sidenav</p>
+                                  <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+                                  <button (click)="showFiller = !showFiller" mat-raised-button>
+                                    Toggle extra text
+                                  </button>
+                                </mat-drawer>
+                              
+                                
+                              
+                              </mat-drawer-container> -->
+                              

@@ -2,3 +2,9 @@
     margin-left: 12%;
     margin-top: 8%;
 }
+
+ .menu {
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+  }
