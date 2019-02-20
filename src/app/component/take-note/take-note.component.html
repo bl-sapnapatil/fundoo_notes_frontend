@@ -1,0 +1,25 @@
+<div fxLayoutAlign="space-around center" fxFlex="100" (click)="flip()" *ngIf="flag==true" class="maindiv">
+  <mat-card fxFlex="50" class="card" fxLayout="row" fxLayoutAlign="space-around center">
+    <div fxFlex="50" data-text="Take a note..." contenteditable="true">
+    </div>
+    <input type="text" class="input" placeholder="Take a note...">
+    <div fxFlex="35" fxLayoutAlign="space-around center" class="iconcolor">
+      <mat-icon matTooltip="New list">check_box</mat-icon>
+      <mat-icon matTooltip="New note with drawing">brush</mat-icon>
+      <mat-icon matTooltip="New note with image">insert_photo</mat-icon>
+    </div>
+  </mat-card>
+</div>
+
+<div fxFlex="100" fxLayoutAlign="space-around center" class="maindiv" *ngIf="flag==false">
+  <mat-card fxFlex="50" fxFlex="50" fxLayoutAlign="space-between start" class="card1" fxLayout="column">
+    <input type="text" class="outline" placeholder="Title">
+    <div>
+      <textarea matTextareaAutosize class="outline" placeholder="Take a note..."></textarea>
+    </div>
+
+    <div>
+      <button mat-button (click)="flip()"><span>close</span></button>
+    </div>
+  </mat-card>
+</div>

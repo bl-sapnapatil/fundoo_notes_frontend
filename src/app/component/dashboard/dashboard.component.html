@@ -1,7 +1,7 @@
- <mat-toolbar class="mat-toolbar">
+<!-- <mat-toolbar class="mat-toolbar">
     <div fxFlex="4">
-        <button mat-icon-button>
-            <mat-icon class="menu" (click)="snav.toogle()">menu</mat-icon>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon class="menu">menu</mat-icon>
         </button>
     </div>
 
@@ -49,34 +49,54 @@
             <mat-icon class="menu">account_circle</mat-icon>
         </button>
     </div>
+</mat-toolbar> -->
 
-</mat-toolbar>
-<mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
-        fixedTopGap="56">
+
+<!-- <mat-sidenav-container>
+    <mat-sidenav #sidenav >
+    <mat-sidenav-content>Main content</mat-sidenav-content>
+    <mat-nav-list>
+            <div>
+                <mat-icon>lightbulb_outline</mat-icon>Notes
+            </div>
+          </mat-nav-list>
+        </mat-sidenav>
+</mat-sidenav-container> -->
+
+<!-- <mat-sidenav-container >
+    <mat-sidenav #sidenav mode="side" opened="true" style="min-width: 50px;" >
         <mat-nav-list>
-            <mat-list role="List">
+            <div>
+                <mat-icon>lightbulb_outline</mat-icon>Notes
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container> -->
 
-                <mat-list-item role="listitem">
-                    Note</mat-list-item>
 
-                <mat-list-item role="listitem">
-                    Reminders</mat-list-item>
-                            </mat-list>
-                        </mat-nav-list>
-                        </mat-sidenav>
-                        </mat-sidenav-container>
+<!-- <mat-toolbar>
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+  </mat-toolbar>
 
-                        <!-- <mat-drawer-container class="example-container" autosize>
-                                <mat-drawer #drawer class="example-sidenav" mode="side">
-                                  <p>Auto-resizing sidenav</p>
-                                  <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-                                  <button (click)="showFiller = !showFiller" mat-raised-button>
-                                    Toggle extra text
-                                  </button>
-                                </mat-drawer>
-                              
-                                
-                              
-                              </mat-drawer-container> -->
-                              
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <mat-list-item>Notes</mat-list-item>
+        <mat-list-item>Reminders</mat-list-item>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+   
+  </mat-sidenav-container> -->
+
+  <!-- <div>
+        <mat-list>
+                <mat-list-item> <mat-icon>lightbulb_outline</mat-icon>Notes </mat-list-item>
+        </mat-list>
+  </div> -->
+  <div>
+  <app-take-note></app-take-note>
+</div>

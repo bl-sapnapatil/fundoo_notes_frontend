@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {  OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({length: 5}, (_, i) => `Nav Item ${i + 1}`);
-  
+  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+
 
   private _mobileQueryListener: () => void;
 
@@ -21,11 +22,10 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
+      }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
 
 }

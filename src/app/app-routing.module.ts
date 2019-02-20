@@ -6,6 +6,8 @@ import { ForgotpasswordComponent } from './component/forgotpassword/forgotpasswo
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { TakeNoteComponent } from './component/take-note/take-note.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [
@@ -27,17 +29,22 @@ const routes: Routes = [
   },
   {
     path: 'verifyemail/:token',   //verifyemail route is mapped with VerifyemailComponent
-    component:VerifyemailComponent,
+    component: VerifyemailComponent,
   },
-  {
-     path: '',    //a blank route i.e when no other route is found in the URL after the domain name, we are mapping it to LoginComponent.
-     component: LoginComponent,
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent
-  }
 
+  {
+    path: '',
+    component: NavbarComponent, children: [{
+      path: 'dashboard',    //a blank route i.e when no other route is found in the URL after the domain name, we are mapping it to LoginComponent.
+      component: DashboardComponent
+    },
+    ]
+
+  },
+{
+  path:'notes',
+  component:TakeNoteComponent
+}
 
 ];
 

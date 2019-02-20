@@ -20,12 +20,12 @@ export class LoginComponent implements OnInit {
 
   //method to show email error message
   getEmailErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' : '';
+    return this.email.hasError('required') ? 'Enter first  name' : '';
 
   }
   // method to show password errormessgae
   getpasswordErrorMessage() {
-    return this.password.hasError('required') ? 'You must enter a value' : '';
+    return this.password.hasError('required') ? 'Enter last name' : '';
 
   }
   

@@ -17,7 +17,7 @@ export class ForgotpasswordComponent implements OnInit {
 
   //method to show email error message
   getEmailErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' : '';
+    return this.email.hasError('required') ? 'Enter email' : '';
   }
 
   //sendlink method which sends the resetlink in email
