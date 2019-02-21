@@ -1,9 +1,11 @@
 
  .mat-toolbar{
     color: dimgrey;
+
   }
     .mat-toolbar {
     background: white;
+    border-bottom: 1px solid lightgray;
  }
   .search{
     border:none;
@@ -22,7 +24,16 @@
   }
   .iconcolor{
       color:dimgray;
+      padding:20px;
   }
-   
- 
- 
+
+  .example-container{
+    height: 100%;
+  }
+  .color{
+    color:gray;
+    margin-left: 29px;
+}
+.sidenav{
+  width: 250px;
+}

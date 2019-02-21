@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { LoginComponent } from './component/login/login.component';
@@ -7,7 +7,7 @@ import { ResetpasswordComponent } from './component/resetpassword/resetpassword.
 import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { TakeNoteComponent } from './component/take-note/take-note.component';
+import { NoteiconsComponent } from './component/noteicons/noteicons.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [
@@ -41,11 +41,10 @@ const routes: Routes = [
     ]
 
   },
-{
-  path:'notes',
-  component:TakeNoteComponent
-}
-
+  {
+    path:'notes',
+    component:NoteiconsComponent,
+  }
 ];
 
 @NgModule({

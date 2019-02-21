@@ -61,6 +61,7 @@ import {
 } from '@angular/material';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { TakeNoteComponent } from './component/take-note/take-note.component';
+import { NoteiconsComponent } from './component/noteicons/noteicons.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { TakeNoteComponent } from './component/take-note/take-note.component';
     VerifyemailComponent,
     DashboardComponent,
     NavbarComponent,
-    TakeNoteComponent
+    TakeNoteComponent,
+    NoteiconsComponent
   ],
   imports: [
     BrowserModule,

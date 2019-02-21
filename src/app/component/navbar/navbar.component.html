@@ -1,10 +1,14 @@
+ 
  <mat-toolbar class="mat-toolbar">
   <div fxFlex="4">
       <button mat-icon-button (click)="sidenav.toggle()">
           <mat-icon  matTooltip="Main menu" class="menu">menu</mat-icon>
       </button>
   </div>
-
+   <div fxFlex="5">
+       <img src='../../../assets/image/keep_48dp (1).png'
+       alt=""/>
+   </div>
   <div fxFlex="17">
       <h1 class="menu">FundooNotes</h1>
   </div>
@@ -63,14 +67,16 @@
 </mat-toolbar>
 
 
-<mat-sidenav-container class="example-container" >
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+<mat-sidenav-container class="example-container">
+  <mat-sidenav  class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
                (closed)="events.push('close!')">
                <mat-list>
-                <mat-list-item> <mat-icon class="iconcolor">lightbulb_outline </mat-icon>  Notes </mat-list-item>
+                <mat-list-item fxLayoutGap="20"> <mat-icon class="iconcolor">lightbulb_outline </mat-icon>  Notes </mat-list-item>
                  <mat-list-item><mat-icon class="iconcolor">notifications_none</mat-icon>Reminders</mat-list-item>
                  <mat-divider></mat-divider>
-                 <span>LABELS</span> 
+                 <span>
+                     <h5  class="color">LABELS</h5>
+                    </span> 
                  <mat-list-item><mat-icon class="iconcolor">edit</mat-icon>Edit labels</mat-list-item>
                  <mat-divider></mat-divider>
                  <mat-list-item><mat-icon class="iconcolor">archive</mat-icon>Archive</mat-list-item>
@@ -81,14 +87,7 @@
   
 
   <mat-sidenav-content>
-    <div>
-      <!-- <mat-list> -->
-                <!-- <mat-list-item> <mat-icon>lightbulb_outline</mat-icon>Notes </mat-list-item>
-                <mat-list-item> Salt </mat-list-item>
-                <mat-list-item> Paprika </mat-list-item>
-               </mat-list> -->
-      <div *ngFor="let e of events">{{e}}</div>
-    </div>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
