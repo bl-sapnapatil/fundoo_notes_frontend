@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, Validators, FormControl } from '@angular/forms';
 import { HttpService } from 'src/app/service/http.service';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { MatSnackBar } from '@angular/material';
 export class LoginComponent implements OnInit {
 
 
-  constructor(private httpService: HttpService, private snackBar: MatSnackBar) { }
+  constructor(private httpService: HttpService, private snackBar: MatSnackBar,private router:Router) { }
 
   ngOnInit() {
   }
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         //snackbar to show messages.
         this.snackBar.open("you are logged in!!", "ok", { duration: 5000 });
+         this.router.navigateByUrl('navbar');
       },
       err => {
         console.log("error: ", err)

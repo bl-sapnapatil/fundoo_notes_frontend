@@ -19,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
 // import {MatToolbarModule} from '@angular/material/toolbar';
 // import {MatSidenavModule} from '@angular/material/sidenav';
 // import {MatMenuModule} from '@angular/material/menu';
@@ -60,8 +59,12 @@ import {
   MatTreeModule,
 } from '@angular/material';
 import { NavbarComponent } from './component/navbar/navbar.component';
-import { TakeNoteComponent } from './component/take-note/take-note.component';
 import { NoteiconsComponent } from './component/noteicons/noteicons.component';
+import { CardComponent } from './component/card/card.component';
+import { AddNoteComponent } from './component/add-note/add-note.component';
+import { ArchiveComponent } from './component/archive/archive.component';
+import { DeleteComponent } from './component/delete/delete.component';
+import { TrashComponent } from './component/trash/trash.component';
 
 @NgModule({
   declarations: [
@@ -71,10 +74,13 @@ import { NoteiconsComponent } from './component/noteicons/noteicons.component';
     ForgotpasswordComponent,
     ResetpasswordComponent,
     VerifyemailComponent,
-    DashboardComponent,
     NavbarComponent,
-    TakeNoteComponent,
-    NoteiconsComponent
+    NoteiconsComponent,
+    CardComponent,
+    AddNoteComponent,
+    ArchiveComponent,
+    DeleteComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule,

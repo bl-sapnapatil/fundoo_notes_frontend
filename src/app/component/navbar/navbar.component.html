@@ -1,93 +1,99 @@
- 
- <mat-toolbar class="mat-toolbar">
-  <div fxFlex="4">
-      <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon  matTooltip="Main menu" class="menu">menu</mat-icon>
-      </button>
-  </div>
-   <div fxFlex="5">
-       <img src='../../../assets/image/keep_48dp (1).png'
-       alt=""/>
-   </div>
-  <div fxFlex="17">
-      <h1 class="menu">FundooNotes</h1>
-  </div>
+<mat-toolbar class="mat-toolbar">
+    <div fxFlex="4">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon matTooltip="Main menu" class="menu">menu</mat-icon>
+        </button>
+    </div>
+    <div fxFlex="5">
+        <img src='../../../assets/image/keep_48dp (1).png' alt="" />
+    </div>
+    <div fxFlex="17">
+        <h1 class="menu">FundooNotes</h1>
+    </div>
 
-  <div class="searchdiv" fxFlex="70" fxLayout="row" fxLayoutAlign="center center">
-      <button mat-icon-button>
-          <mat-icon>search</mat-icon>
-      </button>
-      <input fxFlex="90" class="search" matInput placeholder="search" [style.fontSize.px]="18" autocomplete="off">
-  </div>
-  <div fxFlex="5" class="menu">
-      <button mat-icon-button>
-          <mat-icon matTooltip="Refresh">refresh</mat-icon>
-      </button>
-  </div>
+    <div class="searchdiv" fxFlex="70" fxLayout="row" fxLayoutAlign="center center">
+        <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+        <input fxFlex="90" class="search" matInput placeholder="search" [style.fontSize.px]="18" autocomplete="off">
+    </div>
+    <div fxFlex="5" class="menu">
+        <button mat-icon-button>
+            <mat-icon matTooltip="Refresh">refresh</mat-icon>
+        </button>
+    </div>
 
-  <div fxFlex="5">
-      <button mat-icon-button>
-          <mat-icon matTooltip="Grid View "class="menu">border_all</mat-icon>
-      </button>
-  </div>
+    <div fxFlex="5">
+        <button mat-icon-button>
+            <mat-icon matTooltip="Grid View " class="menu">border_all</mat-icon>
+        </button>
+    </div>
 
-  <div fxFlex="15">
-      <button mat-icon-button>
-          <mat-icon  matTooltip="settings" class="menu">settings</mat-icon>
-      </button>
-  </div>
+    <div fxFlex="15">
+        <button mat-icon-button>
+            <mat-icon matTooltip="settings" class="menu">settings</mat-icon>
+        </button>
+    </div>
 
-  <div fxFlex="5">
-      <button mat-icon-button>
-          <mat-icon  matTooltip="Google apps" class="menu">apps</mat-icon>
-      </button>
-  </div>
+    <div fxFlex="5">
+        <button mat-icon-button>
+            <mat-icon matTooltip="Google apps" class="menu">apps</mat-icon>
+        </button>
+    </div>
 
-  <div fxFlex="5">
-      <button mat-icon-button>
-          <mat-icon   matTooltip="notifications" class="menu">notifications</mat-icon>
-      </button>
-  </div>
-  <div>
-      <button mat-icon-button [matMenuTriggerFor]="menu2">
-          <mat-icon  matTooltip="Google account" class="menu">account_circle</mat-icon>
-          </button>
-          <mat-menu #menu2="matMenu">
-              <h3>sapna patil</h3>
-              <p>sapnapatil344@gmail.com</p>
-              <button mat-menu-item></button>
-               <mat-divider></mat-divider>
-              <div>
-                  <button mat-flat-button (click)="addAccount()">Add Account</button>
-                  <button mat-flat-button (click)="signout()">sign out</button>
-              </div>
+    <div fxFlex="5">
+        <button mat-icon-button>
+            <mat-icon matTooltip="notifications" class="menu">notifications</mat-icon>
+        </button>
+    </div>
+    <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu2">
+            <mat-icon matTooltip="Google account" class="menu">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu2="matMenu">
+            <h3>sapna patil</h3>
+            <p>sapnapatil344@gmail.com</p>
+            <button mat-menu-item></button>
+            <mat-divider></mat-divider>
+            <div>
+                <button mat-flat-button (click)="addAccount()">Add Account</button>
+                <button mat-flat-button (click)="signout()">sign out</button>
+            </div>
 
-          </mat-menu>
-  </div>
+        </mat-menu>
+    </div>
 </mat-toolbar>
 
 
 <mat-sidenav-container class="example-container">
-  <mat-sidenav  class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-               (closed)="events.push('close!')">
-               <mat-list>
-                <mat-list-item fxLayoutGap="20"> <mat-icon class="iconcolor">lightbulb_outline </mat-icon>  Notes </mat-list-item>
-                 <mat-list-item><mat-icon class="iconcolor">notifications_none</mat-icon>Reminders</mat-list-item>
-                 <mat-divider></mat-divider>
-                 <span>
-                     <h5  class="color">LABELS</h5>
-                    </span> 
-                 <mat-list-item><mat-icon class="iconcolor">edit</mat-icon>Edit labels</mat-list-item>
-                 <mat-divider></mat-divider>
-                 <mat-list-item><mat-icon class="iconcolor">archive</mat-icon>Archive</mat-list-item>
-                 <mat-list-item><mat-icon class="iconcolor">delete</mat-icon>Bin</mat-list-item>
-                
-               </mat-list>
-  </mat-sidenav>
-  
+    <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
+        <mat-list>
+            <mat-list-item fxLayoutGap="20" [routerLink]="['addNote']">
+                <mat-icon class="iconcolor">lightbulb_outline </mat-icon> Notes
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon class="iconcolor">notifications_none</mat-icon>Reminders
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <span>
+                <h5 class="color">LABELS</h5>
+            </span>
+            <mat-list-item>
+                <mat-icon class="iconcolor">edit</mat-icon>Edit labels
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <mat-icon class="iconcolor">archive</mat-icon>Archive
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon class="iconcolor">delete</mat-icon>Bin
+            </mat-list-item>
 
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
+        </mat-list>
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
 </mat-sidenav-container>
-
