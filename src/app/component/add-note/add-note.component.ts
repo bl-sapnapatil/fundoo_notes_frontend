@@ -35,7 +35,8 @@ export class AddNoteComponent implements OnInit {
       "color":"",
       "image":"",
       "archive":false,
-      "delete":false
+      "delete":false,
+      "userID":localStorage.getItem('id')
         
     }
     console.log("reqbody---37",reqbody);

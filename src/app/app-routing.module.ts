@@ -38,7 +38,7 @@ const routes: Routes = [
     path: 'verifyemail/:token',   //verifyemail route is mapped with VerifyemailComponent
     component: VerifyemailComponent,
   },
-
+  
   {
     path: 'navbar',
     component: NavbarComponent, children: [
@@ -61,7 +61,8 @@ const routes: Routes = [
       {
         path: 'trash',
         component: TrashComponent
-      }]
+      },
+    ]
   },
 ];
 

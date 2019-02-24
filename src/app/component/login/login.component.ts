@@ -40,7 +40,9 @@ export class LoginComponent implements OnInit {
     }
     this.httpService.postUser(reqbody, '/login').subscribe(
       res => {
-        console.log(res);
+        var data = res['result'];
+        console.log("data: ",data.id);
+        localStorage.setItem('id',data.id)
         //snackbar to show messages.
         this.snackBar.open("you are logged in!!", "ok", { duration: 5000 });
          this.router.navigateByUrl('navbar');

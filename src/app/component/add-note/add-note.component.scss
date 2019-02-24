@@ -4,6 +4,7 @@
     height:40px;
     border-radius: 8px;
     width: 500px;
+    
 }
 .outline{
    border:none;
@@ -11,10 +12,10 @@
    padding-bottom: 20px;
 }
 .iconcolor{
+    margin-left:-250px;
     color:dimgray;
 }
 .maindiv{
-    background-color: white;
     margin-top: 50px;
     
 }.input{
@@ -24,4 +25,7 @@
     // padding-bottom: 20px;
 }.maindiv1{
     margin-block-start: 2px;
+}.card1{
+    border-radius: 13px;
+    box-shadow: 8px;
 }

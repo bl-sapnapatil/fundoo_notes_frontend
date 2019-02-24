@@ -1,6 +1,22 @@
-<div fxFlex="100">
-  <mat-card>
-        Empty
-  </mat-card>
-  <app-noteicons></app-noteicons>
+
+<div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="25px"   >
+  <div *ngFor="let note of items" >
+    <div  >
+      <mat-card style="width:300px; margin-bottom:20px" fxFlex="100" >
+        <div >
+          <div>{{note.title}}</div>
+          <div>
+            <button mat-icon-button></button>
+          </div>
+        </div>
+        <mat-card-content fxLayout="column">
+          <div >{{note.description}}</div>
+
+        </mat-card-content>
+        <app-noteicons></app-noteicons>
+      </mat-card>
+    </div>
+  </div>
 </div>
+
+
