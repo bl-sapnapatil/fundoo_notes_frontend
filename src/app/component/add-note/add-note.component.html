@@ -12,14 +12,14 @@
     </mat-card>
   </div>
 
-  <div fxFlex="100" fxLayoutAlign="space-around start" class="maindiv" *ngIf="flag==false">
+  <div fxFlex="100" fxLayoutAlign="space-around start" class="maindiv" *ngIf="flag==false" >
     <mat-card fxFlex="100" fxLayoutAlign="space-between start" class="card1" fxLayout="column">
-      <input type="text" [formControl]="title" class="outline" placeholder="Title">
+      <input type="text" [formControl]="title" class="outline" placeholder="Title" >
       <div>
-        <textarea matTextareaAutosize [formControl]="description" class="outline" placeholder="Take a note..."></textarea>
+        <textarea matTextareaAutosize [formControl]="description" class="outline" placeholder="Take a note..." ></textarea>
       </div>
       <div fxlayout="row" fxLayoutAlign="space-between center">
-        <app-noteicons></app-noteicons>
+        <app-noteicons (setColorEvent) = "receiveColorEvent($event)"></app-noteicons>
         <button mat-button (click)="flip()" (click)=" addNote()">
           close
         </button>

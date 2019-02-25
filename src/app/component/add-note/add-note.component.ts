@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { noteService } from 'src/app/service/noteservices/noteService';
 import { FormControl } from '@angular/forms';
@@ -10,8 +10,12 @@ import { FormControl } from '@angular/forms';
 })
 export class AddNoteComponent implements OnInit {
   flag: boolean = true;
-
+  setColor = '';
+  
   constructor(private notehttpservice: noteService ,private snackBar: MatSnackBar) { }
+
+  // @Output() childEvent = new EventEmitter<any>();
+
 
   ngOnInit() {
   }
@@ -22,6 +26,10 @@ export class AddNoteComponent implements OnInit {
   flip()
   {
     this.flag = !this.flag;
+  }
+     
+  receiveColorEvent($event) {
+    this.setColor = $event;
   }
 
 

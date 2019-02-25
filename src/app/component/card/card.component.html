@@ -1,13 +1,11 @@
 
-<div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="25px"   >
+<div fxLayout="row wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="25px">
   <div *ngFor="let note of items" >
     <div  >
-      <mat-card style="width:300px; margin-bottom:20px" fxFlex="100" >
+      <mat-card style="width:300px; margin-bottom:20px" fxFlex="100" class="card" >
         <div >
-          <div>{{note.title}}</div>
-          <div>
-            <button mat-icon-button></button>
-          </div>
+          <div class="title">{{note.title}}</div>
+          
         </div>
         <mat-card-content fxLayout="column">
           <div >{{note.description}}</div>

@@ -7,9 +7,11 @@
         <mat-icon matTooltip="Collaborator" class="menu">person_add</mat-icon>
     </button>
 
-    <button mat-icon-button>
-        <mat-icon matTooltip="Change color" class="menu">color_lens</mat-icon>
-    </button>
+    <div>
+        <button mat-icon-button [matMenuTriggerFor]="color">
+            <mat-icon matTooltip="Change color" class="menu">color_lens</mat-icon>
+        </button>
+    </div>
 
     <button mat-icon-button>
         <mat-icon matTooltip="Add image" class="menu">image</mat-icon>
@@ -22,4 +24,20 @@
     <button mat-icon-button>
         <mat-icon matTooltip="More" class="menu">more_vert</mat-icon>
     </button>
+
+    <mat-menu #color="matMenu">
+        <!-- <ng-template matMenuContent> -->
+            <div>
+                <div fxLayout="row" fxLayoutGap="10px" *ngFor="let colors of arrayOfColors">
+                    <div *ngFor="let color of colors">
+                        <button class="colorArray"  matTooltip={{color.name}} [ngStyle]="{'background-color': color.color}" (click)="setColor(colors.colorID)">
+
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        <!-- </ng-template> -->
+    </mat-menu>
+
 </div>
