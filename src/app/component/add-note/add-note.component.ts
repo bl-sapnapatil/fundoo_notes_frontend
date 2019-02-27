@@ -10,7 +10,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AddNoteComponent implements OnInit {
   flag: boolean = true;
-  setColor = '';
+  setColor = '#FFFFF';
   
   constructor(private notehttpservice: noteService ,private snackBar: MatSnackBar) { }
 
@@ -30,6 +30,8 @@ export class AddNoteComponent implements OnInit {
      
   receiveColorEvent($event) {
     this.setColor = $event;
+    console.log("ccolor received:",this.setColor);
+
   }
 
 
@@ -40,7 +42,7 @@ export class AddNoteComponent implements OnInit {
       "description":this.description.value,
       "pinned":false,
       "remindMe":"",
-      "color":"",
+      "color":this.setColor,
       "image":"",
       "archive":false,
       "delete":false,

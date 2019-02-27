@@ -1,9 +1,31 @@
 .menu{
-    color:dimgray;
+    color: black;
 }.colorArray{
     background-color: rgb(255, 255, 255);
     width: 35px;
     height: 35px;
     border-radius: 50px;
     border: lightgrey solid 1px;
+}.card{
+    width: 250px;
+    height: 300px;
+    border-radius: 4px;
+    z-index: 5003;
+    overflow: hidden;
+    overflow-y: hidden;
+    margin-inline-end: 150px;
+    padding-bottom: 10px;
+}.labels{
+    margin-left: 108px;
+}.labels1{
+    margin-left: 120px;
+}.labels2{
+    margin-left: 88px;
+
+}.labels3{
+    margin-left: 117px;
+}.label4{
+    margin-left: 16px;
+}.iconcolor{
+    opacity: 0.6px;
 }

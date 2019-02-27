@@ -10,6 +10,8 @@ export class NoteiconsComponent implements OnInit {
   constructor() { }
 
   @Output() setColorEvent = new EventEmitter<any>();
+  @Output() updateColorEvent = new EventEmitter<any>();
+
 
   ngOnInit() {
   }
@@ -18,24 +20,29 @@ export class NoteiconsComponent implements OnInit {
     [
     
       { 'color': 'rgb(255,255,255)','name':'White'},
-      {'color': 'rgb(242,139,130)','name':'Red'},
-      {'color': 'rgb(251,188,4)','name':'Orange'},
-      {'color': 'rgb(255,244,117)','name':'yellow'}],
+      {'color': 'rgb(242, 139, 130)','name':'Red'},
+      {'color': 'rgb(251, 188, 4)','name':'Orange'},
+      {'color': 'rgb(255, 244, 117)','name':'yellow'}],
   [
-    {'color': 'rgb(0,255,127)','name':'Green'},
-    {'color': 'rgb(0,128,128)','name':'teal'},
-    {'color': 'rgb(100,149,237)','name':'blue'},
-    {'color': 'rgb(0,191,255','name':'skyblue'}],
+    {'color': 'rgb(204, 255, 144)','name':'Green'},
+    {'color': 'rgb(167, 255, 235)','name':'teal'},
+    {'color': 'rgb(203, 240, 248)','name':'blue'},
+    {'color': 'rgb(174, 203, 250)','name':'Darkblue'}],
   [
-    {'color':'rgb(0,206,209)', 'name':'Turquoise'},
-    {'color':'rgb(255,127,80)','name':'Brown'},
-    {'color':'rgb(255,105,180)','name':'Pink'},
-    {'color':'rgb(186,85,211)', 'name':'Purple'}]
+    {'color':'rgb(215, 174, 251)', 'name':'Purple'},
+    {'color':'rgb(253, 207, 232)','name':'Pink'},
+    {'color':'rgb(230, 201, 168)','name':'Brown'},
+    {'color':'rgb(232, 234, 237)', 'name':'Gray'}]
     
    ]
 
-   setColor(){
-     this.setColorEvent.emit(this.setColor);
+   setColor(colorId){
+     this.setColorEvent.emit(colorId);
+     this.updateColorEvent.emit(colorId);
    }
+
+  
+    
+  
 
 }

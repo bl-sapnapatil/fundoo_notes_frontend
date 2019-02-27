@@ -10,6 +10,8 @@
    border:none;
    outline: none;
    padding-bottom: 20px;
+   background:transparent;
+
 }
 .iconcolor{
     margin-left:-250px;
@@ -28,4 +30,8 @@
 }.card1{
     border-radius: 13px;
     box-shadow: 8px;
+    width: 500px;
+    border:lightgray solid 1px;
+}.size{
+    margin-left: 150px;
 }

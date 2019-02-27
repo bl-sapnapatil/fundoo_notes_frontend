@@ -1,24 +1,25 @@
 <div fxLayout="row">
-    <button mat-icon-button>
-        <mat-icon matTooltip="Remind me" class="menu">notifications_icon</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="list" >
+        <img src="../../../assets/image/download.svg">
     </button>
+    
 
     <button mat-icon-button>
-        <mat-icon matTooltip="Collaborator" class="menu">person_add</mat-icon>
+        <img src="../../../assets/image/download (2).svg">
     </button>
 
     <div>
         <button mat-icon-button [matMenuTriggerFor]="color">
-            <mat-icon matTooltip="Change color" class="menu">color_lens</mat-icon>
+            <img src="../../../assets/image/download (3).svg">
         </button>
     </div>
 
     <button mat-icon-button>
-        <mat-icon matTooltip="Add image" class="menu">image</mat-icon>
+        <img src="../../../assets/image/download (4).svg">
     </button>
 
     <button mat-icon-button>
-        <mat-icon matTooltip="Archive" class="menu">archive</mat-icon>
+        <img src="../../../assets/image/download (5).svg">
     </button>
 
     <button mat-icon-button>
@@ -26,18 +27,46 @@
     </button>
 
     <mat-menu #color="matMenu">
-        <!-- <ng-template matMenuContent> -->
+        <ng-template matMenuContent>
             <div>
                 <div fxLayout="row" fxLayoutGap="10px" *ngFor="let colors of arrayOfColors">
                     <div *ngFor="let color of colors">
-                        <button class="colorArray"  matTooltip={{color.name}} [ngStyle]="{'background-color': color.color}" (click)="setColor(colors.colorID)">
+                        <button class="colorArray" matTooltip={{color.name}} [ngStyle]="{'background-color': color.color}"
+                            (click)="setColor(color.color)">
 
                         </button>
                     </div>
 
                 </div>
             </div>
-        <!-- </ng-template> -->
+        </ng-template>
+    </mat-menu>
+
+
+    <mat-menu #list="matMenu">
+    
+            <label class="label4">Reminder:</label>
+
+            <button mat-menu-item>Later today
+                <label class="labels">20:00</label>
+            </button>
+
+            <button mat-menu-item>Tomorrow
+                <label class="labels1">8:00</label>
+            </button>
+
+            <button mat-menu-item>Next week
+                <label class="labels2">Mon,8:00</label>
+            </button>
+
+            <button mat-menu-item>Home
+                <label class="labels3">Mumbai</label>
+            </button>
+
+            <button mat-menu-item>
+                <mat-icon>schedule</mat-icon>select date and time
+            </button>
+        
     </mat-menu>
 
 </div>

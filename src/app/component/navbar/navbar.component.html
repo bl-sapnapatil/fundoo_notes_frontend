@@ -17,11 +17,7 @@
         </button>
         <input fxFlex="90" class="search" matInput placeholder="search" [style.fontSize.px]="18" autocomplete="off">
     </div>
-    <div fxFlex="5" class="menu">
-        <button mat-icon-button>
-            <mat-icon matTooltip="Refresh">refresh</mat-icon>
-        </button>
-    </div>
+    
 
     <div fxFlex="5">
         <button mat-icon-button>
@@ -29,23 +25,6 @@
         </button>
     </div>
 
-    <div fxFlex="15">
-        <button mat-icon-button>
-            <mat-icon matTooltip="settings" class="menu">settings</mat-icon>
-        </button>
-    </div>
-
-    <div fxFlex="5">
-        <button mat-icon-button>
-            <mat-icon matTooltip="Google apps" class="menu">apps</mat-icon>
-        </button>
-    </div>
-
-    <div fxFlex="5">
-        <button mat-icon-button>
-            <mat-icon matTooltip="notifications" class="menu">notifications</mat-icon>
-        </button>
-    </div>
     <div>
         <button mat-icon-button [matMenuTriggerFor]="menu2">
             <mat-icon matTooltip="Google account" class="menu">account_circle</mat-icon>
@@ -69,7 +48,8 @@
     <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
         <mat-list>
             <mat-list-item fxLayoutGap="20" [routerLink]="['addNote']">
-                <mat-icon class="iconcolor">lightbulb_outline </mat-icon> Notes
+                <mat-icon class="iconcolor">lightbulb_outline </mat-icon> 
+                Notes
             </mat-list-item>
             <mat-list-item>
                 <mat-icon class="iconcolor">notifications_none</mat-icon>Reminders

@@ -21,11 +21,12 @@ export class noteService {
 
     getNotes(data) {
         console.log(data);
-        
         return this.http.get('http://localhost:3000/getNotes/' + data.userID);
       }
 
-   
+   updateColor(data){
+    return this.http.post('http://localhost:3000/updateColor', data);
+   }
 
 }
 

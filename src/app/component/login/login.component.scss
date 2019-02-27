@@ -1,10 +1,18 @@
 .center1{
     margin-left: 12%;
     margin-top: 8%;
+    box-shadow: 10px;
+    border: lightgray solid 1px;
 }
 
  .menu {
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
+  }
+  .color{
+      color: purple;
+  }
+  .color1{
+      margin: 30px;
   }
