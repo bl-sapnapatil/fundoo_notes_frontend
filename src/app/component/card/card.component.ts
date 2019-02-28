@@ -57,6 +57,8 @@ export class CardComponent implements OnInit {
   }
 
   getNotes(note) {
+    console.log("note in getNotes---60",note);
+    
     this.note = note;
     console.log("notes received:", note);
 

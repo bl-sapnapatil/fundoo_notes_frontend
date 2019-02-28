@@ -1,29 +1,29 @@
 <div fxLayout="row">
     <button mat-icon-button [matMenuTriggerFor]="list" >
-        <img src="../../../assets/image/download.svg">
+        <img src="../../../assets/image/download.svg"  matTooltip="Remind me">
     </button>
     
 
     <button mat-icon-button>
-        <img src="../../../assets/image/download (2).svg">
+        <img src="../../../assets/image/download (2).svg" matTooltip="Collaborator">
     </button>
 
     <div>
         <button mat-icon-button [matMenuTriggerFor]="color">
-            <img src="../../../assets/image/download (3).svg">
+            <img src="../../../assets/image/download (3).svg" matTooltip="Change color">
         </button>
     </div>
 
     <button mat-icon-button>
-        <img src="../../../assets/image/download (4).svg">
+        <img src="../../../assets/image/download (4).svg" matTooltip="Add image">
     </button>
 
     <button mat-icon-button>
-        <img src="../../../assets/image/download (5).svg">
+        <img src="../../../assets/image/download (5).svg" matTooltip="Archive">
     </button>
 
-    <button mat-icon-button>
-        <mat-icon matTooltip="More" class="menu">more_vert</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="items">
+        <mat-icon matTooltip="More" matTooltip="More" class="menu">more_vert</mat-icon>
     </button>
 
     <mat-menu #color="matMenu">
@@ -67,6 +67,16 @@
                 <mat-icon>schedule</mat-icon>select date and time
             </button>
         
+    </mat-menu>
+
+    <mat-menu #items="matMenu">
+            <button mat-menu-item >Delete note</button>
+            <button mat-menu-item>Add label</button>
+            <button mat-menu-item>Add drawing</button>
+            <button mat-menu-item>Make a copy</button>
+            <button mat-menu-item>Hide tick boxes</button>
+            <button mat-menu-item>Copy to Google Docs</button>
+
     </mat-menu>
 
 </div>
