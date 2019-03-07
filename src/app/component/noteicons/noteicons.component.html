@@ -1,8 +1,8 @@
 <div fxLayout="row">
-    <button mat-icon-button [matMenuTriggerFor]="list" >
-        <img src="../../../assets/image/download.svg"  matTooltip="Remind me">
+    <button mat-icon-button [matMenuTriggerFor]="list">
+        <img src="../../../assets/image/download.svg" matTooltip="Remind me">
     </button>
-    
+
 
     <button mat-icon-button>
         <img src="../../../assets/image/download (2).svg" matTooltip="Collaborator">
@@ -19,7 +19,7 @@
     </button>
 
     <button mat-icon-button>
-        <img src="../../../assets/image/download (5).svg" matTooltip="Archive">
+        <img src="../../../assets/image/download (5).svg" matTooltip="Archive" (click)="archivedNotes()">
     </button>
 
     <button mat-icon-button [matMenuTriggerFor]="items">
@@ -31,8 +31,8 @@
             <div>
                 <div fxLayout="row" fxLayoutGap="10px" *ngFor="let colors of arrayOfColors">
                     <div *ngFor="let color of colors">
-                        <button class="colorArray" matTooltip={{color.name}} [ngStyle]="{'background-color': color.color}"
-                            (click)="setColor(color.color)">
+                        <button class="colorArray" matTooltip={{color.name}}
+                            [ngStyle]="{'background-color': color.color}" (click)="setColor(color.color)">
 
                         </button>
                     </div>
@@ -44,38 +44,57 @@
 
 
     <mat-menu #list="matMenu">
-    
-            <label class="label4">Reminder:</label>
 
-            <button mat-menu-item>Later today
-                <label class="labels">20:00</label>
-            </button>
+        <label class="label4">Reminder:</label>
 
-            <button mat-menu-item>Tomorrow
-                <label class="labels1">8:00</label>
-            </button>
+        <button mat-menu-item [matMenuTriggerFor]="click">Later today
+            <label class="labels">20:00</label>
+        </button>
 
-            <button mat-menu-item>Next week
-                <label class="labels2">Mon,8:00</label>
-            </button>
+        <button mat-menu-item>Tomorrow
+            <label class="labels1">8:00</label>
+        </button>
 
-            <button mat-menu-item>Home
-                <label class="labels3">Mumbai</label>
-            </button>
+        <button mat-menu-item>Next week
+            <label class="labels2">Mon,8:00</label>
+        </button>
 
-            <button mat-menu-item>
-                <mat-icon>schedule</mat-icon>select date and time
-            </button>
-        
+        <button mat-menu-item>Home
+            <label class="labels3">Mumbai</label>
+        </button>
+
+        <button mat-menu-item>
+            <mat-icon>schedule</mat-icon>select date and time
+        </button>
+
     </mat-menu>
 
     <mat-menu #items="matMenu">
-            <button mat-menu-item >Delete note</button>
-            <button mat-menu-item>Add label</button>
-            <button mat-menu-item>Add drawing</button>
-            <button mat-menu-item>Make a copy</button>
-            <button mat-menu-item>Hide tick boxes</button>
-            <button mat-menu-item>Copy to Google Docs</button>
+        <button mat-menu-item (click)="deleteNote()">Delete note</button>
+        <button mat-menu-item  [matMenuTriggerFor]="addlabel">Add label</button>
+        <button mat-menu-item>Add drawing</button>
+        <button mat-menu-item>Make a copy</button>
+        <button mat-menu-item>Hide tick boxes</button>
+        <button mat-menu-item>Copy to Google Docs</button>
+
+    </mat-menu>
+
+    <mat-menu #click="matMenu">
+        <mat-list-item class="icon">
+            <mat-icon class="icon" matTooltip="Go back"  >arrow_back</mat-icon>Select date and time
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </mat-menu>
+
+    <mat-menu #addlabel="matMenu" class="addlabel">
+        <label>Label note</label>
+        <input matInput  placeholder="Enter label name">
+
 
     </mat-menu>
 

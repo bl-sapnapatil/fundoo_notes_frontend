@@ -23,6 +23,9 @@ import { VerifyemailComponent } from './component/verifyemail/verifyemail.compon
 // import {MatSidenavModule} from '@angular/material/sidenav';
 // import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -32,8 +35,6 @@ import {
   MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
-  MatDatepickerModule,
-  MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
   MatGridListModule,
@@ -65,6 +66,7 @@ import { AddNoteComponent } from './component/add-note/add-note.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { DeleteComponent } from './component/delete/delete.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { DialogComponent } from './component/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,8 @@ import { TrashComponent } from './component/trash/trash.component';
     AddNoteComponent,
     ArchiveComponent,
     DeleteComponent,
-    TrashComponent
+    TrashComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -138,6 +141,9 @@ import { TrashComponent } from './component/trash/trash.component';
     MatTreeModule,
 
   ],
+  entryComponents: [
+    DialogComponent,
+    ],
   providers: [HttpService],
   bootstrap: [AppComponent]
 })

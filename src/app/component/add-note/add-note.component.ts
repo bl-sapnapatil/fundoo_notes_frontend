@@ -36,7 +36,6 @@ export class AddNoteComponent implements OnInit {
 
 
   addNote() {
-   
     var reqbody = {
       "title":this.title.value,
       "description":this.description.value,

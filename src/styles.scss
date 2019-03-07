@@ -14,3 +14,7 @@
 body{
     height: 100vh;
 }
+ng-deep h2 {
+    border-radius: 15px;
+    border: lightgray solid 1px;
+}

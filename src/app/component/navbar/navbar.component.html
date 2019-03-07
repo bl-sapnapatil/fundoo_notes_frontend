@@ -47,7 +47,7 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
         <mat-list>
-            <mat-list-item fxLayoutGap="20" [routerLink]="['addNote']">
+            <mat-list-item fxLayoutGap="20"  [routerLink]="['addNote']">
                 <mat-icon class="iconcolor">lightbulb_outline </mat-icon> 
                 Notes
             </mat-list-item>
@@ -62,7 +62,7 @@
                 <mat-icon class="iconcolor">edit</mat-icon>Edit labels
             </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>
+            <mat-list-item  [routerLink]="['archive']">
                 <mat-icon class="iconcolor">archive</mat-icon>Archive
             </mat-list-item>
             <mat-list-item>

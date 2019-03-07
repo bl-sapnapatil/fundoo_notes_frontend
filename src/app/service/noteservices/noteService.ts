@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { log } from 'util';
 @Injectable({
     providedIn: 'root'
 })
@@ -27,6 +28,18 @@ export class noteService {
    updateColor(data){
     return this.http.post('http://localhost:3000/updateColor', data);
    }
+    deletedNotes(data){
+      return this.http.post('http://localhost:3000/deleteNote',data);
+    }
+    archivedNotes(data){
+        console.log("data",data);  
+        return this.http.post('http://localhost:3000/isArchived',data)
+    }
+    updateNote(data){
+        console.log("data on updateNOte",data);
+        
+        return this.http.post('http://localhost:3000/updateNote',data)
+    }
 
 }
 

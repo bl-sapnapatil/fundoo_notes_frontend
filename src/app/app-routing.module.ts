@@ -10,6 +10,7 @@ import { AddNoteComponent } from './component/add-note/add-note.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { DeleteComponent } from './component/delete/delete.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { DialogComponent } from './component/dialog/dialog.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
     path: 'verifyemail/:token',   //verifyemail route is mapped with VerifyemailComponent
     component: VerifyemailComponent,
   },
+  // {
+  //   path: 'dialog',   //verifyemail route is mapped with VerifyemailComponent
+  //   component:  DialogComponent,
+  // },
   
   {
     path: 'navbar',

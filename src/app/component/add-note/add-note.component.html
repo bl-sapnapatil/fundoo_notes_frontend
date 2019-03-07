@@ -17,7 +17,7 @@
     <mat-card fxFlex="100" fxLayoutAlign="space-between start" class="card1" fxLayout="column" [style.backgroundColor]="setColor">
       <input type="text" [formControl]="title" class="outline" placeholder="Title" >
       <div>
-        <textarea matTextareaAutosize [formControl]="description" class="outline" placeholder="Take a note..." ></textarea>
+        <textarea matTextareaAutosize  class="outline" placeholder="Take a note..." ></textarea>
       </div>
       <div fxlayout="row" fxLayoutAlign="space-between center">
         <app-noteicons (setColorEvent) = "receiveColorEvent($event)"></app-noteicons>
