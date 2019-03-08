@@ -1,13 +1,13 @@
 <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
-    <div *ngFor="let items of archiveArray"  >
-      <div *ngIf= "items.archive===true">
-        <mat-card fxFlex="100" style="width:300px; margin-bottom:20px" class="card"  [style.backgroundColor]="items.color" >
+    <div *ngFor="let item of items"  >
+      <div>
+        <mat-card fxFlex="100" style="width:300px; margin-bottom:20px" class="card"  [style.backgroundColor]="item.color" >
           <div >
-            <div class="title">{{items.title}}</div>
+            <div class="title">{{item.title}}</div>
             
           </div>
           <mat-card-content fxLayout="column">
-            <div >{{items.description}}</div>
+            <div >{{item.description}}</div>
   
           </mat-card-content>
           <app-noteicons></app-noteicons>

@@ -23,23 +23,29 @@ export class noteService {
     getNotes(data) {
         console.log(data);
         return this.http.get('http://localhost:3000/getNotes/' + data.userID);
-      }
-
-   updateColor(data){
-    return this.http.post('http://localhost:3000/updateColor', data);
-   }
-    deletedNotes(data){
-      return this.http.post('http://localhost:3000/deleteNote',data);
-    }
-    archivedNotes(data){
-        console.log("data",data);  
-        return this.http.post('http://localhost:3000/isArchived',data)
-    }
-    updateNote(data){
-        console.log("data on updateNOte",data);
-        
-        return this.http.post('http://localhost:3000/updateNote',data)
     }
 
+    updateColor(data) {
+        return this.http.post('http://localhost:3000/updateColor', data);
+    }
+    deletedNotes(data) {
+        return this.http.post('http://localhost:3000/deleteNote', data);
+    }
+    archivedNotes(data) {
+        console.log("data",data);
+        return this.http.post('http://localhost:3000/isArchived/', data);
+    }
+    updateNote(data) {
+        console.log("data on updateNOte", data);
+        return this.http.post('http://localhost:3000/updateNote', data)
+    }
+    getArchivedNotes(data){
+        console.log("data in archivednotes--43",data);
+        return this.http.get('http://localhost:3000/getArchived/' + data.userID);
+    }
+    getBin(data){
+        console.log("data in archivednotes--43",data);
+        return this.http.get('http://localhost:3000/getArchived/' + data.userID);
+    }
 }
 

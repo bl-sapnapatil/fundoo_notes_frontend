@@ -81,9 +81,7 @@ export class NoteiconsComponent implements OnInit {
 
   archivedNotes() {
     console.log("items in cards for archived", this.items);
-    // this.archiveValue =! this.archiveValue
-    // console.log("value in archive:",this.archiveValue);
-    
+ 
        const archNote = {
         "_id": this.items._id,
         "archive":true

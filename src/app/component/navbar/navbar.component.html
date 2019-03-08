@@ -8,7 +8,8 @@
         <img src='../../../assets/image/keep_48dp (1).png' alt="" />
     </div>
     <div fxFlex="17">
-        <h1 class="menu">FundooNotes</h1>
+        <span class="menu" >{{titleName}}</span>
+        <span class="menu" *ngIf="titleName== null">FundooNotes</span>
     </div>
 
     <div class="searchdiv" fxFlex="70" fxLayout="row" fxLayoutAlign="center center">
@@ -47,26 +48,30 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')">
         <mat-list>
-            <mat-list-item fxLayoutGap="20"  [routerLink]="['addNote']">
-                <mat-icon class="iconcolor">lightbulb_outline </mat-icon> 
-                Notes
+            <mat-list-item fxLayoutGap="20"  [routerLink]="['addNote']" (click)="note()">
+                <img src= "../../../assets/image/lightbulb.svg" class="icon">
+                <label class="title">Notes</label>
             </mat-list-item>
-            <mat-list-item>
-                <mat-icon class="iconcolor">notifications_none</mat-icon>Reminders
+            <mat-list-item (click)="Reminders()">
+                <img src="../../../assets/image/Reminders.svg" class="icon">
+                <label class="title">Reminders</label>
             </mat-list-item>
             <mat-divider></mat-divider>
             <span>
                 <h5 class="color">LABELS</h5>
             </span>
-            <mat-list-item>
-                <mat-icon class="iconcolor">edit</mat-icon>Edit labels
+            <mat-list-item (click)="editLabels()" >
+                <img src="../../../assets/image/label.svg" class="icon">
+                <label  class="title">Edit labels</label>
             </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item  [routerLink]="['archive']">
-                <mat-icon class="iconcolor">archive</mat-icon>Archive
+            <mat-list-item  [routerLink]="['archive']" (click)="Archive()">
+                <img src="../../../assets/image/Archive.svg" class="icon">
+                <label class="title">Archive</label>
             </mat-list-item>
-            <mat-list-item>
-                <mat-icon class="iconcolor">delete</mat-icon>Bin
+            <mat-list-item [routerLink]="['delete']" (click)="Bin()">
+                <img src="../../../assets/image/Bin.svg" class="icon" >
+                <label class="title">Bin</label>
             </mat-list-item>
 
         </mat-list>

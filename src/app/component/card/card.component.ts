@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { noteService } from '../../service/noteservices/noteService';
-import { filter } from 'rxjs/operators';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
 

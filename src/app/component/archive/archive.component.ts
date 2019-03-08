@@ -9,39 +9,31 @@ import { noteService } from 'src/app/service/noteservices/noteService';
 export class ArchiveComponent implements OnInit {
   archiveArray: any;
   items: any;
-  trashcards: any;
-  cardsArray: any;
+  archive: any;
 
   constructor(private service: noteService) { }
 
   ngOnInit() {
-    this.getCards()
+   this.getArchivedNotes();
   }
+  
 
-  getCards() {
+  getArchivedNotes() {
     const data = {
       userID: localStorage.getItem('id')
     };
-    this.service.getNotes(data).subscribe(
+    console.log("data on archive---25",data);
+    this.service.getArchivedNotes(data).subscribe(
       data => {
-        console.log(data);
-        this.items = data['result'];
-        console.log("cards array ", this.items);
-
-        // this.trashcards = this.items.filter(function (el) {
-        //   return (el.delete === true && el.archive === true)
-        // });
-
-        // this.cardsArray = this.items.filter(function (el) {
-        //   return (el.delete === false && el.archive === false)
-        // });
-
-
+         this.items = data['result'];
+         console.log(this.items);
+         
       },
       error => {
         console.log('error response: ', error);
       }
     )
   }
+ 
 
 }

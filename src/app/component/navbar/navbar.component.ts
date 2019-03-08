@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   opened: boolean;
 
   shouldRun = true;
+  titleName: string;
 
   constructor(private router:Router) { }
 
@@ -22,5 +23,21 @@ export class NavbarComponent implements OnInit {
   signout(){
     this.router.navigate(['login']);
   }
+  note(){
+  this.titleName= "FundooNotes"
+  }
+  Reminders(){
+    this.titleName= "Reminders"
+  }
+  editLabels(){
+    this.titleName= "Edit label"
+  }
+  Archive(){
+    this.titleName= "Archive"
+  }
+  Bin(){
+    this.titleName= "Bin"
+  }
+
 
 }
