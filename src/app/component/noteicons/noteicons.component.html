@@ -47,7 +47,7 @@
 
         <label class="label4">Reminder:</label>
 
-        <button mat-menu-item [matMenuTriggerFor]="click">Later today
+        <button mat-menu-item (click)="setLaterToday()">Later today
             <label class="labels">20:00</label>
         </button>
 
@@ -79,7 +79,7 @@
 
     </mat-menu>
 
-    <mat-menu #click="matMenu">
+    <!-- <mat-menu #click="matMenu">
         <mat-list-item class="icon">
             <mat-icon class="icon" matTooltip="Go back"  >arrow_back</mat-icon>Select date and time
         </mat-list-item>
@@ -89,7 +89,7 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-    </mat-menu>
+    </mat-menu> -->
 
     <mat-menu #addlabel="matMenu" class="addlabel">
         <label>Label note</label>

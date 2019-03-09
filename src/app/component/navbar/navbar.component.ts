@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ViewChangeServiceService } from 'src/app/service/view-change-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,18 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   events: string[] = [];
   opened: boolean;
+  show: boolean;
 
   shouldRun = true;
   titleName: string;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private viewService:ViewChangeServiceService) { }
 
   ngOnInit() {
+    this.viewService.currentView.subscribe(
+      response=>{
+        this.show =response;
+      });
   }
   addAccount(){
     this.router.navigate(['register']);
@@ -37,6 +43,10 @@ export class NavbarComponent implements OnInit {
   }
   Bin(){
     this.titleName= "Bin"
+  }
+
+  setGridAndListView(){
+    this.viewService.onViewChange();
   }
 
 

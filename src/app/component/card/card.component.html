@@ -1,20 +1,42 @@
-
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
-  <div *ngFor="let note of cardsArray"  >
-    <div >
-      <mat-card style="width:300px; margin-bottom:20px" class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color" >
-        <div>
-          <div class="title" (click)="openDialog(note)">{{note.title}}</div>
+<div *ngIf="currentView">
+<div fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
+  <div *ngFor="let note of cardsArray" >
+    <div>
+      <mat-card  class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color" >
+        <div fxLayout="row">
+          <div class="title"  (click)="openDialog(note)">{{note.title}}</div>
+          <div><img src="../../../assets/image/pin.svg" class="pin"></div>
           
         </div>
         <mat-card-content fxLayout="column">
           <div >{{note.description}}</div>
-
         </mat-card-content>
         <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" [items]="note"></app-noteicons>
+      
       </mat-card>
     </div>
   </div>
 </div>
+</div>
 
+<div *ngIf="!currentView">
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
+  <div *ngFor="let note of cardsArray" >
+    <div>
+      <mat-card  class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color" >
+        <div fxLayout="row">
+          <div class="title"  (click)="openDialog(note)">{{note.title}}</div>
+          <div><img src="../../../assets/image/pin.svg" class="pin"></div>
+          
+        </div>
+        <mat-card-content fxLayout="column">
+          <div >{{note.description}}</div>
+        </mat-card-content>
+        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" [items]="note"></app-noteicons>
+      
+      </mat-card>
+    </div>
+  </div>
+</div>
+</div>
 

@@ -16,13 +16,11 @@ export class AddNoteComponent implements OnInit {
 
   // @Output() childEvent = new EventEmitter<any>();
 
-
   ngOnInit() {
   }
   title = new FormControl('')
   description= new FormControl('')
 
-  
   flip()
   {
     this.flag = !this.flag;

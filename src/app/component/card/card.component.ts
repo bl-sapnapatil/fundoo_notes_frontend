@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { noteService } from '../../service/noteservices/noteService';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
+import { ViewChangeServiceService } from 'src/app/service/view-change-service.service';
 
 
 @Component({
@@ -15,11 +16,19 @@ export class CardComponent implements OnInit {
   note: any;
   trashcards: any;
   cardsArray: any;
-
-  constructor(private service: noteService, public dialog: MatDialog) { }
+  currentView:boolean;
+  constructor(private service: noteService,private viewService:ViewChangeServiceService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getCards();
+
+    this.viewService.currentView.subscribe(
+      (response)=>{
+        this.currentView=response;
+      }
+    )
+
+
   }
 
   receiveUpdateColorEvent($event) {
