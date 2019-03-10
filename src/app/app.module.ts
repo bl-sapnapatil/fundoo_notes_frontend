@@ -67,6 +67,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { DeleteComponent } from './component/delete/delete.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { DialogComponent } from './component/dialog/dialog.component';
+import { LabelComponent } from './component/label/label.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { DialogComponent } from './component/dialog/dialog.component';
     ArchiveComponent,
     DeleteComponent,
     TrashComponent,
-    DialogComponent
+    DialogComponent,
+    LabelComponent
   ],
   imports: [
     BrowserModule,

@@ -29,6 +29,8 @@ export class noteService {
         return this.http.post('http://localhost:3000/updateColor', data);
     }
     deletedNotes(data) {
+        console.log("data",data);
+        
         return this.http.post('http://localhost:3000/deleteNote', data);
     }
     archivedNotes(data) {

@@ -56,9 +56,15 @@
   padding: 20px;
 }
 
-// ::ng-deep.mat-menu-content:not(:empty) {
-//   width: 313px ;
-//   height: 183px;
-//   padding-top: 20px;
-  
-//   }
+    /deep/.mat-menu-panel{
+    border-radius: 9px;
+    outline: 0;
+    height: 241px;
+    width: 312px;
+  }
+  .heading{
+    margin-left: 123px;
+  }
+  .subheading{
+    margin-left: 82px;
+  }

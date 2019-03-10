@@ -16,10 +16,16 @@ export class NoteiconsComponent implements OnInit {
   constructor(private noteService: noteService, private snackBar: MatSnackBar) { }
   @Input() items: any;
   @Input() note: any;
+  @Input() childMessage: any = "";
   @Output() setColorEvent = new EventEmitter<any>();
   @Output() updateColorEvent = new EventEmitter<any>();
+  @Output() updateColorForDialogBox = new EventEmitter<any>();
+  @Output() deleteNoteEvent = new EventEmitter<any>();
+  @Output() archiveCardEvent = new EventEmitter<any>();
 
   ngOnInit() {
+    console.log("items",this.items);
+    
   }
 
      
@@ -45,13 +51,29 @@ export class NoteiconsComponent implements OnInit {
 
   setColor(colorId) {
     this.setColorEvent.emit(colorId);
-    this.updateColorEvent.emit(colorId);
+    this.updateColorForDialogBox.emit(colorId);
+    if(this.childMessage != ""){
+      const changeColor ={
+        _id:this.childMessage,
+        color:colorId
+      }
+      this.noteService.updateColor(changeColor).subscribe(
+       data => {
+        this.updateColorEvent.emit(colorId)      
+        },
+        error =>{
+          console.log(error);
+          
+        }
+      )
+    }
+   
+     
   }
 
   deleteNote() {
     var notesInTrash = {};
     console.log("items in cards", this.items);
-
     if (this.items == "") {
       notesInTrash = {
         "_id": this.items._id,
@@ -64,8 +86,8 @@ export class NoteiconsComponent implements OnInit {
       }
       this.noteService.deletedNotes(notesInTrash).subscribe(
         data => {
-
           this.snackBar.open("note deleted successfully", "", { duration: 5000 });
+          this.deleteNoteEvent.emit("done");
         },
         err => {
           this.snackBar.open("note not deleted successfully", "", { duration: 5000 });
@@ -91,6 +113,7 @@ export class NoteiconsComponent implements OnInit {
        data => {
         console.log("data in archive",data);
         this.snackBar.open("Note archived", "", { duration: 5000 });
+        this.archiveCardEvent.emit(archNote);
         },
         err => {
           this.snackBar.open("Note not archived ", "", { duration: 5000 });
@@ -98,6 +121,7 @@ export class NoteiconsComponent implements OnInit {
       )
 
     }
+    
 
     setLaterToday()
     {
