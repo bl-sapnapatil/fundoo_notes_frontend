@@ -17,6 +17,9 @@ export class CardComponent implements OnInit {
   trashcards: any;
   cardsArray: any;
   currentView:boolean;
+  d: Date;
+  flag: boolean;
+  // reminder: any;
   constructor(private service: noteService,private viewService:ViewChangeServiceService, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -30,6 +33,12 @@ export class CardComponent implements OnInit {
 
 
   }
+
+  // receiveReminderEvent($event) {
+  //   this.reminder= $event;
+  //   console.log("Reminder",this.reminder);
+
+  // }
 
   receiveUpdateColorEvent($event) {
     this.setColor1 = $event;
@@ -105,5 +114,20 @@ export class CardComponent implements OnInit {
       )
     });
   }
+ 
+  removeReminder()
+  {
+    this.items.reminder=null;
+    this.service.updateNote(this.items).subscribe(
+      data => {
+        console.log("data", data);
+      },
+      err => {
+        console.log(err);
+
+      })
+
+  }
+
 
 }

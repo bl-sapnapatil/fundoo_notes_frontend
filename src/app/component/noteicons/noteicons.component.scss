@@ -33,7 +33,21 @@
     color: gray;
 }.icon1{
     margin-left: 225px;
-// }.addlabel{
-//     height: 50px;
-//     width: 70px;
+}
+/deep/.mat-menu-panel.reminderMenu{
+    border-radius: 6px;
+    height: 272px;
+    width: 261px;
+}
+/deep/.mat-menu-panel.colorMenu{
+    height: 120px;
+    width: 180px;
+    overflow: hidden;
+}
+/deep/.mat-menu-panel.moreVertMenu{
+    height: 270px;
+    width: 173px;
+}
+.size{
+    margin-top: 20px;
 }

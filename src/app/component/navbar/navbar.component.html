@@ -56,11 +56,11 @@
     <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
         (closed)="events.push('close!')">
         <mat-list>
-            <mat-list-item fxLayoutGap="20" [routerLink]="['addNote']" (click)="note()" class="mat-list-item-content">
+            <mat-list-item fxLayoutGap="20" [routerLink]="['addNote']" (click)="note()" id="note">
                 <img src="../../../assets/image/lightbulb.svg" class="icon">
                 <label class="title">Notes</label>
             </mat-list-item>
-            <mat-list-item (click)="Reminders()">
+            <mat-list-item (click)="Reminders()" id="note">
                 <img src="../../../assets/image/Reminders.svg" class="icon">
                 <label class="title">Reminders</label>
             </mat-list-item>
@@ -68,16 +68,16 @@
             <span>
                 <h5 class="color">LABELS</h5>
             </span>
-            <mat-list-item (click)="editLabels()">
+            <mat-list-item (click)="editLabels()" id="note">
                 <img src="../../../assets/image/label.svg" class="icon">
                 <label class="title">Edit labels</label>
             </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item [routerLink]="['archive']" (click)="Archive()">
+            <mat-list-item [routerLink]="['archive']" (click)="Archive()" id="note">
                 <img src="../../../assets/image/Archive.svg" class="icon">
                 <label class="title">Archive</label>
             </mat-list-item>
-            <mat-list-item [routerLink]="['delete']" (click)="Bin()">
+            <mat-list-item [routerLink]="['delete']" (click)="Bin()" id="note">
                 <img src="../../../assets/image/Bin.svg" class="icon">
                 <label class="title">Bin</label>
             </mat-list-item>

@@ -1,7 +1,8 @@
-import { Component, OnInit , Output, EventEmitter} from '@angular/core';
+import { Component, OnInit , Output, EventEmitter, ViewChild} from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { noteService } from 'src/app/service/noteservices/noteService';
 import { FormControl } from '@angular/forms';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-add-note',
@@ -13,6 +14,10 @@ export class AddNoteComponent implements OnInit {
   setColor = '#FFFFF';
   
   constructor(private notehttpservice: noteService ,private snackBar: MatSnackBar) { }
+
+
+  @ViewChild(CardComponent) child;
+
 
   // @Output() childEvent = new EventEmitter<any>();
 
@@ -38,7 +43,7 @@ export class AddNoteComponent implements OnInit {
       "title":this.title.value,
       "description":this.description.value,
       "pinned":false,
-      "remindMe":"",
+      "reminder":"",
       "color":this.setColor,
       "image":"",
       "archive":false,
@@ -54,6 +59,7 @@ export class AddNoteComponent implements OnInit {
         console.log(res);
         //snackbar to show messages.
         this.snackBar.open("note added successfully", "", { duration: 5000 });
+        this.child.getCards();
       },
       err => {
         console.log("error: ", err)

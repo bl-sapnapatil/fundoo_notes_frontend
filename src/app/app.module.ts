@@ -25,6 +25,7 @@ import { VerifyemailComponent } from './component/verifyemail/verifyemail.compon
 import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MomentModule } from 'ngx-moment';
 
 import {
   MatAutocompleteModule,
@@ -58,6 +59,7 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
+  
 } from '@angular/material';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { NoteiconsComponent } from './component/noteicons/noteicons.component';
@@ -85,7 +87,8 @@ import { LabelComponent } from './component/label/label.component';
     DeleteComponent,
     TrashComponent,
     DialogComponent,
-    LabelComponent
+    LabelComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -141,7 +144,7 @@ import { LabelComponent } from './component/label/label.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-
+    MomentModule
   ],
   entryComponents: [
     DialogComponent,

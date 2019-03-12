@@ -1,7 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { noteService } from '../../service/noteservices/noteService';
 import { MatSnackBar } from '@angular/material';
-import { log } from 'util';
+import { MomentModule } from 'ngx-moment';
+
+
 
 
 @Component({
@@ -11,7 +13,8 @@ import { log } from 'util';
 })
 export class NoteiconsComponent implements OnInit {
   archiveCards: any[];
-  archiveValue:boolean;
+  archiveValue: boolean;
+  d: Date;
 
   constructor(private noteService: noteService, private snackBar: MatSnackBar) { }
   @Input() items: any;
@@ -22,13 +25,16 @@ export class NoteiconsComponent implements OnInit {
   @Output() updateColorForDialogBox = new EventEmitter<any>();
   @Output() deleteNoteEvent = new EventEmitter<any>();
   @Output() archiveCardEvent = new EventEmitter<any>();
+  // @Output() reminderEvent = new EventEmitter<any>();
 
   ngOnInit() {
-    console.log("items",this.items);
-    
+    console.log("items", this.items);
+    // this.getCards();
+    //  this.setLaterToday();
+
+
   }
 
-     
   arrayOfColors = [
     [
 
@@ -51,25 +57,13 @@ export class NoteiconsComponent implements OnInit {
 
   setColor(colorId) {
     this.setColorEvent.emit(colorId);
+    this.updateColorEvent.emit(colorId);
     this.updateColorForDialogBox.emit(colorId);
-    if(this.childMessage != ""){
-      const changeColor ={
-        _id:this.childMessage,
-        color:colorId
-      }
-      this.noteService.updateColor(changeColor).subscribe(
-       data => {
-        this.updateColorEvent.emit(colorId)      
-        },
-        error =>{
-          console.log(error);
-          
-        }
-      )
-    }
-   
-     
   }
+
+
+
+
 
   deleteNote() {
     var notesInTrash = {};
@@ -103,39 +97,94 @@ export class NoteiconsComponent implements OnInit {
 
   archivedNotes() {
     console.log("items in cards for archived", this.items);
- 
-       const archNote = {
-        "_id": this.items._id,
-        "archive":true
-      }
-      console.log("after archived",archNote)
-      this.noteService.archivedNotes(archNote).subscribe(
-       data => {
-        console.log("data in archive",data);
+
+    const archNote = {
+      "_id": this.items._id,
+      "archive": true
+    }
+    console.log("after archived", archNote)
+    this.noteService.archivedNotes(archNote).subscribe(
+      data => {
+        console.log("data in archive", data);
         this.snackBar.open("Note archived", "", { duration: 5000 });
         this.archiveCardEvent.emit(archNote);
-        },
-        err => {
-          this.snackBar.open("Note not archived ", "", { duration: 5000 });
-        }
-      )
+      },
+      err => {
+        this.snackBar.open("Note not archived ", "", { duration: 5000 });
+      }
+    )
 
-    }
-    
-
-    setLaterToday()
-    {
-
-    }
   }
 
-  
-  
 
 
 
-  
+  setLaterToday() {
+    let laterToday = new Date().toLocaleDateString() + ", " + "20:00";
+    this.items.reminder = laterToday;
+    this.noteService.updateNote(this.items).subscribe(
+      data => {
+        console.log("data", data);
+      },
+      err => {
+        console.log(err);
+
+      })
+
+  }
+
+  setTomorrow() {
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setHours(20, 0, 0);
+    tomorrow.setDate(today.getDate() + 1);
+    const date = new Date(tomorrow);
+    this.items.reminder = date;
+    this.d = new Date(this.items.reminder);
+    console.log("date", this.d);
+    var dat = this.d.toLocaleDateString() + ", " + this.d.toLocaleTimeString();
+    console.log("date1", dat);
+    this.items.reminder = dat;
+    this.noteService.updateNote(this.items).subscribe(
+      data => {
+        console.log("data", data);
+      },
+      err => {
+        console.log(err);
+      })
+
+  }
+
+
+
+  setNextweek() {
+    var d = new Date();
+    d.setHours(d.getHours() + 168);
+    var date = new Date(d);
+    this.items.reminder = date;
+    this.d = new Date(this.items.reminder);
+    console.log("date of next week", this.d);
+    var dat = this.d.toLocaleDateString() + "," + "20:00";
+    console.log("date1", dat);
+    this.items.reminder = dat;
+    this.noteService.updateNote(this.items).subscribe(
+      data => {
+        console.log("data", data);
+      },
+      err => {
+        console.log(err);
+      })
     
-  
+  }
+}
+
+
+
+
+
+
+
+
+
 
 

@@ -11,9 +11,17 @@
         <mat-card-content fxLayout="column">
           <div >{{note.description}}</div>
         </mat-card-content>
+        <div>
+         <mat-chip-list>
+          <mat-chip *ngIf ="note.reminder">
+            {{note.reminder}}
+           <!-- {{d.toLocaleDateString()+" "+d.toLocaleTimeString()}} -->
+           <mat-icon matChipRemove (click)="removeReminder()">close</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+        </div>
         <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" [items]="note"></app-noteicons>
-      
-      </mat-card>
+      </mat-card> 
     </div>
   </div>
 </div>
@@ -32,7 +40,7 @@
         <mat-card-content fxLayout="column">
           <div >{{note.description}}</div>
         </mat-card-content>
-        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)"></app-noteicons>
+        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)"  [items]="note"></app-noteicons>
       
       </mat-card>
     </div>
