@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter ,Input} from '@angular/core';
 import { noteService } from '../../service/noteservices/noteService';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -21,24 +21,23 @@ export class CardComponent implements OnInit {
   flag: boolean;
   // reminder: any;
   constructor(private service: noteService,private viewService:ViewChangeServiceService, public dialog: MatDialog) { }
+  // @Input() items: any;
 
   ngOnInit() {
     this.getCards();
-
+    console.log("items on cardts", this.items);
     this.viewService.currentView.subscribe(
       (response)=>{
         this.currentView=response;
       }
     )
-
+    
+    if(this.items.reminder !== null){
+      this.d = new Date(this.items.reminder)
+    }
 
   }
 
-  // receiveReminderEvent($event) {
-  //   this.reminder= $event;
-  //   console.log("Reminder",this.reminder);
-
-  // }
 
   receiveUpdateColorEvent($event) {
     this.setColor1 = $event;
@@ -99,11 +98,18 @@ export class CardComponent implements OnInit {
   openDialog(note) {
     console.log("note", note);
     const dialogRef = this.dialog.open(DialogComponent, {
-      data: note
+      data: note,
     });
+  //   const upData = {
+  //     "title":this.note.title,
+  //     "description": this.note.description,
+  // };
+  // console.log("title",this.note.title);
+  // console.log("description",this.note.description);
     dialogRef.afterClosed().subscribe(result => {
       this.service.updateNote(note).subscribe(
         data => {
+          console.log("data in dialog--",data); 
           this.getCards();
         },
         err => {
@@ -115,12 +121,14 @@ export class CardComponent implements OnInit {
     });
   }
  
-  removeReminder()
-  {
-    this.items.reminder=null;
-    this.service.updateNote(this.items).subscribe(
+  removeReminder(note)
+  { 
+    console.log("data in items",note);
+    note.reminder=null;
+    this.service.updateNote(note).subscribe(
       data => {
         console.log("data", data);
+        this.getCards();
       },
       err => {
         console.log(err);

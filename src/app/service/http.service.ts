@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Registeruser } from '../model/registermodel';
 import { Loginuser } from '../model/loginmodel';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+  public  apiBaseurl = environment.apiBaseurl;
   url: string;
   constructor(private http: HttpClient) { } //dependency injection is passed as a argument inside constructor.
-  
-  apiBaseurl:'http://localhost:3000'
   
   selectedUser: Registeruser = {
     firstName: '',
@@ -33,7 +34,7 @@ export class HttpService {
         }),
     };
     // set header in your http request
-    return this.http.post('http://localhost:3000' + url, user, httpOptions);
+    return this.http.post(this.apiBaseurl + url, user, httpOptions);
   }
 
   resetpassword(data, purpose: string) {
@@ -43,7 +44,7 @@ export class HttpService {
 
     });
     // set header in your http request
-    return this.http.post('http://localhost:3000' + purpose, data, { headers: headers })
+    return this.http.post(this.apiBaseurl + purpose, data, { headers: headers })
 
   }
    

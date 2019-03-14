@@ -1,9 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { NgForm, Validators, FormControl } from '@angular/forms';
 import { noteService } from '../../service/noteservices/noteService';
 import { MatSnackBar } from '@angular/material';
 import { MomentModule } from 'ngx-moment';
-
-
 
 
 @Component({
@@ -15,6 +14,7 @@ export class NoteiconsComponent implements OnInit {
   archiveCards: any[];
   archiveValue: boolean;
   d: Date;
+  d1: Date;
 
   constructor(private noteService: noteService, private snackBar: MatSnackBar) { }
   @Input() items: any;
@@ -29,19 +29,19 @@ export class NoteiconsComponent implements OnInit {
 
   ngOnInit() {
     console.log("items", this.items);
-    // this.getCards();
-    //  this.setLaterToday();
-
-
   }
+  dPicker = new FormControl('');
+  tPicker = new FormControl('');
+ 
+  
 
   arrayOfColors = [
     [
 
       { 'color': 'rgb(255,255,255)', 'name': 'White' },
-      { 'color': 'rgb(242, 139, 130)', 'name': 'Red' },
+      { 'color': 'rgb(242, 139, 130)', 'name':'Red' },
       { 'color': 'rgb(251, 188, 4)', 'name': 'Orange' },
-      { 'color': 'rgb(255, 244, 117)', 'name': 'yellow' }],
+      { 'color': 'rgb(255, 244, 117)', 'name':'yellow' }],
     [
       { 'color': 'rgb(204, 255, 144)', 'name': 'Green' },
       { 'color': 'rgb(167, 255, 235)', 'name': 'teal' },
@@ -62,35 +62,22 @@ export class NoteiconsComponent implements OnInit {
   }
 
 
-
-
-
-  deleteNote() {
-    var notesInTrash = {};
-    console.log("items in cards", this.items);
-    if (this.items == "") {
-      notesInTrash = {
-        "_id": this.items._id,
-        "delete": true
-      }
-    } else {
-      notesInTrash = {
-        "_id": this.items._id,
-        "delete": true
-      }
-      this.noteService.deletedNotes(notesInTrash).subscribe(
-        data => {
-          this.snackBar.open("note deleted successfully", "", { duration: 5000 });
-          this.deleteNoteEvent.emit("done");
-        },
-        err => {
-          this.snackBar.open("note not deleted successfully", "", { duration: 5000 });
-
-        }
-
-      )
-
+ deleteNote(){
+    console.log("items in cards for delete", this.items);
+    const deleteNote = {
+      "_id": this.items._id,
+      "delete": true
     }
+    console.log("after delete", deleteNote);
+    this.noteService.deletedNotes(deleteNote).subscribe(
+     data => {
+      this.snackBar.open("note deleted successfully", "", { duration: 5000 });
+      this.deleteNoteEvent.emit("done");
+      },
+      err => {
+      this.snackBar.open("note not deleted successfully", "", { duration: 5000 });
+      }
+    )
 
   }
 
@@ -176,6 +163,20 @@ export class NoteiconsComponent implements OnInit {
       })
     
   }
+
+  saveReminder(){
+    console.log("picked date: ",this.dPicker.value);
+     var date = this.dPicker.value.toLocaleDateString() + "," + this.tPicker.value;
+     this.items.reminder = date;
+     console.log("date in SaveReminder--",date);
+     this.noteService.updateNote(this.items).subscribe(
+      data => {
+        console.log("data", data);
+      },
+      err => {
+        console.log(err);
+      });
+}
 }
 
 

@@ -2,7 +2,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
   <div *ngFor="let note of cardsArray" >
     <div>
-      <mat-card  class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color" >
+      <mat-card  class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color"  >
         <div fxLayout="row">
           <div class="title"  (click)="openDialog(note)">{{note.title}}</div>
           <div><img src="../../../assets/image/pin.svg" class="pin"></div>
@@ -15,8 +15,7 @@
          <mat-chip-list>
           <mat-chip *ngIf ="note.reminder">
             {{note.reminder}}
-           <!-- {{d.toLocaleDateString()+" "+d.toLocaleTimeString()}} -->
-           <mat-icon matChipRemove (click)="removeReminder()">close</mat-icon>
+           <mat-icon matChipRemove (click)="removeReminder(note)">close</mat-icon>
           </mat-chip>
         </mat-chip-list>
         </div>
@@ -47,4 +46,8 @@
   </div>
 </div>
 </div>
+
+
+<!-- [ngClass]="{'width':!show= column wrap}"
+ -->
 

@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { log } from 'util';
+import { environment } from '../../../environments/environment';
+
 @Injectable({
     providedIn: 'root'
 })
 export class noteService {
+   public  apiBaseurl = environment.apiBaseurl;
     constructor(private http: HttpClient) { }
 
     postUser(user, url) {
@@ -17,37 +19,43 @@ export class noteService {
                 }),
         };
         // set header in your http request
-        return this.http.post('http://localhost:3000' + url, user, httpOptions);
+        return this.http.post( this.apiBaseurl + url, user, httpOptions);
     }
 
     getNotes(data) {
         console.log(data);
-        return this.http.get('http://localhost:3000/getNotes/' + data.userID);
+        return this.http.get(this.apiBaseurl+ 'getNotes' + '/' +data.userID);
+
     }
 
     updateColor(data) {
-        return this.http.post('http://localhost:3000/updateColor', data);
+        return this.http.get(this.apiBaseurl+ 'updateColor' + '/' +data.userID);
+
     }
     deletedNotes(data) {
         console.log("data",data);
-        
-        return this.http.post('http://localhost:3000/deleteNote', data);
+        return this.http.post(this.apiBaseurl+'deleteNote' + '/', data);
     }
     archivedNotes(data) {
         console.log("data",data);
-        return this.http.post('http://localhost:3000/isArchived/', data);
+        return this.http.post(this.apiBaseurl+ 'isArchived' + '/', data);
     }
     updateNote(data) {
         console.log("data on updateNOte", data);
-        return this.http.post('http://localhost:3000/updateNote', data)
+        return this.http.post(this.apiBaseurl+'updateNote' + '/', data)
     }
     getArchivedNotes(data){
         console.log("data in archivednotes--43",data);
-        return this.http.get('http://localhost:3000/getArchived/' + data.userID);
+        return this.http.get(this.apiBaseurl+'getArchived' + '/', data.userID);
+    }
+
+    getReminder(data){
+        console.log("data in reminder--43",data);
+        return this.http.get(this.apiBaseurl+'getReminder' + '/' + data.userID);
     }
     getBin(data){
-        console.log("data in archivednotes--43",data);
-        return this.http.get('http://localhost:3000/getArchived/' + data.userID);
+        console.log("data in deletednotes--43",data);
+        return this.http.get(this.apiBaseurl+ 'getBin' + '/' + data.userID);
     }
 }
 

@@ -6,27 +6,19 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { LoginComponent } from './component/login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatCardModule } from '@angular/material';
-// import {MatInputModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-// import {MatButtonModule} from '@angular/material/button';
 import { ForgotpasswordComponent } from './component/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './component/resetpassword/resetpassword.component';
 import { HttpService } from './service/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { VerifyemailComponent } from './component/verifyemail/verifyemail.component';
-// import {MatToolbarModule} from '@angular/material/toolbar';
-// import {MatSidenavModule} from '@angular/material/sidenav';
-// import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MomentModule } from 'ngx-moment';
-
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -67,9 +59,9 @@ import { CardComponent } from './component/card/card.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { DeleteComponent } from './component/delete/delete.component';
-import { TrashComponent } from './component/trash/trash.component';
 import { DialogComponent } from './component/dialog/dialog.component';
 import { LabelComponent } from './component/label/label.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
 
 @NgModule({
   declarations: [
@@ -85,9 +77,9 @@ import { LabelComponent } from './component/label/label.component';
     AddNoteComponent,
     ArchiveComponent,
     DeleteComponent,
-    TrashComponent,
     DialogComponent,
     LabelComponent,
+    ReminderComponent,
    
   ],
   imports: [

@@ -23,7 +23,6 @@
 
     <div fxFlex="5">
         <button mat-icon-button (click)="setGridAndListView()">
-            <!-- <mat-iconGrid V matTooltip="iew " class="menu">border_all</mat-icon> -->
             <mat-icon *ngIf="show">view_stream</mat-icon>
             <mat-icon *ngIf="!show">view_module</mat-icon>
         </button>
@@ -60,7 +59,7 @@
                 <img src="../../../assets/image/lightbulb.svg" class="icon">
                 <label class="title">Notes</label>
             </mat-list-item>
-            <mat-list-item (click)="Reminders()" id="note">
+            <mat-list-item (click)="Reminders()"   [routerLink]="['reminder']" id="note">
                 <img src="../../../assets/image/Reminders.svg" class="icon">
                 <label class="title">Reminders</label>
             </mat-list-item>

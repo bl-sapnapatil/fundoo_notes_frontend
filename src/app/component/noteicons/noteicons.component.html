@@ -1,12 +1,5 @@
-   <!-- <div>
-        <mat-chip-list>
-         <mat-chip *ngIf ="this.items.reminder!==null">
-          {{d.toLocaleDateString()+" "+d.toLocaleTimeString()}}
-         </mat-chip>
-        </mat-chip-list> 
-            </div>  -->
 <div fxLayout="row">
-    <button mat-icon-button [matMenuTriggerFor]="list" >
+    <button mat-icon-button [matMenuTriggerFor]="list">
         <img src="../../../assets/image/download.svg" matTooltip="Remind me">
     </button>
 
@@ -48,7 +41,7 @@
             </div>
         </ng-template>
     </mat-menu>
-   
+
 
     <mat-menu #list="matMenu" class="reminderMenu">
 
@@ -58,7 +51,7 @@
         </button>
 
         <button mat-menu-item (click)="setTomorrow()">Tomorrow
-            <label class="labels1" >8:00</label>
+            <label class="labels1">8:00</label>
         </button>
 
         <button mat-menu-item (click)="setNextweek()">Next week
@@ -69,7 +62,7 @@
             <label class="labels3">Mumbai</label>
         </button>
 
-        <button mat-menu-item [matMenuTriggerFor]="datePicker" >
+        <button mat-menu-item [matMenuTriggerFor]="datePicker">
             <mat-icon>schedule</mat-icon>select date and time
         </button>
 
@@ -77,29 +70,52 @@
 
     <mat-menu #items="matMenu" class="moreVertMenu">
         <button mat-menu-item (click)="deleteNote()">Delete note</button>
-        <button mat-menu-item  [matMenuTriggerFor]="addlabel">Add label</button>
+        <button mat-menu-item [matMenuTriggerFor]="addlabel">Add label</button>
         <button mat-menu-item>Add drawing</button>
         <button mat-menu-item>Make a copy</button>
         <button mat-menu-item>Hide tick boxes</button>
         <button mat-menu-item>Copy to Google Docs</button>
 
     </mat-menu>
-        <mat-menu #addlabel="matMenu" class="addlabel">
+    <mat-menu #addlabel="matMenu" class="addlabel">
         <label>Label note</label>
         <div class="size">
-        <input matInput  placeholder="Enter label name">
+            <input matInput placeholder="Enter label name">
         </div>
     </mat-menu>
 
 
-    <mat-menu #datePicker="matMenu">
+    <mat-menu #datePicker="matMenu" class="datePicker">
+        <!-- <mat-menu-content  class="dateTimePicker"> -->
         <label class="size">Select date and time</label>
+        <!-- </mat-menu-content> -->
         <mat-divider></mat-divider>
-        <mat-datepicker></mat-datepicker>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="dPicker"
+                (click)="$event.stopPropagation()">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
+        <mat-form-field (click)="$event.stopPropagation()">
+            <mat-label>Choose time</mat-label>
+            <mat-select matInput [formControl]="tPicker" (click)="$event.stopPropagation()" class="Options">
+                <mat-option value="Morning 08:00">Morning 08:00</mat-option>
+                <mat-option value="Afternoon 08:00">Afternoon 13:00</mat-option>
+                <mat-option value="Evening 08:00">Evening 18:00</mat-option>
+                <mat-option value="Night 08:00">Night 20:00</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button class="save" (click)="saveReminder()">
+            <label>save</label>
+        </button>
     </mat-menu>
-       
-     
 
 
-</div> 
+
+
+
+
+
+
+</div>

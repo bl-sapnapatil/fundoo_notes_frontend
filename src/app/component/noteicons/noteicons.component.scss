@@ -16,7 +16,7 @@
     margin-inline-end: 150px;
     padding-bottom: 10px;
 }.labels{
-    margin-left: 108px;
+    margin-left: 141px;
 }.labels1{
     margin-left: 120px;
 }.labels2{
@@ -49,5 +49,38 @@
     width: 173px;
 }
 .size{
-    margin-top: 20px;
+    margin-top: 13px;
+}
+// /deep/.dateTimePicker{
+
+// }
+.arrow{
+    margin-left: 230px;
+}
+.mat-form-field-infix{
+    margin-top: -38px
+}
+.morning{
+    margin-left: 143px;
+}
+.afternoon{
+    margin-left: 132px;
+}
+.evening{
+    margin-left: 140px;
+}
+.night{
+    margin-left: 157px;
+}
+.save{
+    margin-left: 206px;
+    border: none;
+    background-color: white;
+}
+/deep/.mat-menu-panel.datePicker{
+    margin-left: -260px;
+    width:260px;
+}
+.Options{
+    margin-left: 12px;
 }

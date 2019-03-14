@@ -9,8 +9,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { DeleteComponent } from './component/delete/delete.component';
-import { TrashComponent } from './component/trash/trash.component';
 import { DialogComponent } from './component/dialog/dialog.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [
@@ -39,10 +39,6 @@ const routes: Routes = [
     path: 'verifyemail/:token',   //verifyemail route is mapped with VerifyemailComponent
     component: VerifyemailComponent,
   },
-  // {
-  //   path: 'dialog',   //verifyemail route is mapped with VerifyemailComponent
-  //   component:  DialogComponent,
-  // },
   
   {
     path: 'navbar',
@@ -52,7 +48,7 @@ const routes: Routes = [
         component: AddNoteComponent
       },
       {
-        path: 'addNote',    //a blank route i.e when no other route is found in the URL after the domain name, we are mapping it to LoginComponent.
+        path: 'addNote',
         component: AddNoteComponent
       },
       {
@@ -64,8 +60,8 @@ const routes: Routes = [
         component: DeleteComponent
       },
       {
-        path: 'trash',
-        component: TrashComponent
+        path: 'reminder',
+        component: ReminderComponent
       },
     ]
   },
