@@ -62,6 +62,9 @@ import { DeleteComponent } from './component/delete/delete.component';
 import { DialogComponent } from './component/dialog/dialog.component';
 import { LabelComponent } from './component/label/label.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
+import { SearchComponent } from './component/search/search.component';
+import { PipePipe } from './pipe/pipe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -80,6 +83,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
     DialogComponent,
     LabelComponent,
     ReminderComponent,
+    SearchComponent,
+    PipePipe,
    
   ],
   imports: [

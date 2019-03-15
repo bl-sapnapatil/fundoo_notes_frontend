@@ -12,7 +12,7 @@
             <div>{{item.description}}</div>
 
           </mat-card-content>
-          <app-noteicons></app-noteicons>
+          <app-noteicons  (archiveCardEvent)="receivearchiveCardEvent($event)"></app-noteicons>
         </mat-card>
       </div>
     </div>
@@ -24,7 +24,7 @@
   <div fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
     <div *ngFor="let item of items">
       <div>
-        <mat-card fxFlex="100" style="width:300px; margin-bottom:20px" class="card"
+        <mat-card fxFlex="100" style="width:300px; margin-bottom:20px" class="width"
           [style.backgroundColor]="item.color">
           <div>
             <div class="title">{{item.title}}</div>
@@ -34,7 +34,7 @@
             <div>{{item.description}}</div>
 
           </mat-card-content>
-          <app-noteicons></app-noteicons>
+          <app-noteicons (archiveCardEvent)="receivearchiveCardEvent($event)"></app-noteicons>
         </mat-card>
       </div>
     </div>

@@ -35,7 +35,6 @@ export class ArchiveComponent implements OnInit {
       data => {
          this.items = data['result'];
          console.log(this.items);
-         
       },
       error => {
         console.log('error response: ', error);

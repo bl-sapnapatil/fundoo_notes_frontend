@@ -17,7 +17,7 @@ export class AddNoteComponent implements OnInit {
 
 
   @ViewChild(CardComponent) child;
-
+ 
 
   // @Output() childEvent = new EventEmitter<any>();
 
@@ -51,12 +51,12 @@ export class AddNoteComponent implements OnInit {
       "userID":localStorage.getItem('id')
         
     }
-    console.log("reqbody---37",reqbody);
+    console.log("reqbody---53",reqbody);
     
     this.notehttpservice.postUser(reqbody, '/createNotes').subscribe(
       
       res => {
-        console.log(res);
+        console.log("res on add note--58",res);
         //snackbar to show messages.
         this.snackBar.open("note added successfully", "", { duration: 5000 });
         this.child.getCards();

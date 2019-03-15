@@ -10,7 +10,7 @@ export class noteService {
     constructor(private http: HttpClient) { }
 
     postUser(user, url) {
-        console.log("data in user--10", user);
+        console.log("data in user--13", user);
 
         var httpOptions = {
             headers: new HttpHeaders // create header object
@@ -19,7 +19,7 @@ export class noteService {
                 }),
         };
         // set header in your http request
-        return this.http.post( this.apiBaseurl + url, user, httpOptions);
+        return this.http.post( this.apiBaseurl + 'createNotes', user, httpOptions);
     }
 
     getNotes(data) {
@@ -27,9 +27,9 @@ export class noteService {
         return this.http.get(this.apiBaseurl+ 'getNotes' + '/' +data.userID);
 
     }
-
     updateColor(data) {
-        return this.http.get(this.apiBaseurl+ 'updateColor' + '/' +data.userID);
+        console.log("data on update color",data);
+        return this.http.post(this.apiBaseurl+ 'updateColor',data);
 
     }
     deletedNotes(data) {
@@ -46,7 +46,7 @@ export class noteService {
     }
     getArchivedNotes(data){
         console.log("data in archivednotes--43",data);
-        return this.http.get(this.apiBaseurl+'getArchived' + '/', data.userID);
+        return this.http.get(this.apiBaseurl+ 'getArchived' + '/', data.userID);
     }
 
     getReminder(data){

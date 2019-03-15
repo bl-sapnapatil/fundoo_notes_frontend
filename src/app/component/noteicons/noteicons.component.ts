@@ -28,7 +28,7 @@ export class NoteiconsComponent implements OnInit {
   // @Output() reminderEvent = new EventEmitter<any>();
 
   ngOnInit() {
-    console.log("items", this.items);
+    // console.log("items", this.items);
   }
   dPicker = new FormControl('');
   tPicker = new FormControl('');
@@ -84,7 +84,6 @@ export class NoteiconsComponent implements OnInit {
 
   archivedNotes() {
     console.log("items in cards for archived", this.items);
-
     const archNote = {
       "_id": this.items._id,
       "archive": true
@@ -94,7 +93,7 @@ export class NoteiconsComponent implements OnInit {
       data => {
         console.log("data in archive", data);
         this.snackBar.open("Note archived", "", { duration: 5000 });
-        this.archiveCardEvent.emit(archNote);
+        this.archiveCardEvent.emit("done");
       },
       err => {
         this.snackBar.open("Note not archived ", "", { duration: 5000 });

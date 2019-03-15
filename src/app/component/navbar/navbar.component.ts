@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViewChangeServiceService } from 'src/app/service/view-change-service.service';
+import { SearchService } from 'src/app/service/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +10,13 @@ import { ViewChangeServiceService } from 'src/app/service/view-change-service.se
 })
 export class NavbarComponent implements OnInit {
   events: string[] = [];
+  search: string;
   opened: boolean;
   show: boolean;
-
   shouldRun = true;
   titleName: string;
 
-  constructor(private router:Router,private viewService:ViewChangeServiceService) { }
+  constructor(private router:Router,private viewService:ViewChangeServiceService,private service: SearchService) { }
 
   ngOnInit() {
     this.viewService.currentView.subscribe(
@@ -47,6 +48,11 @@ export class NavbarComponent implements OnInit {
 
   setGridAndListView(){
     this.viewService.onViewChange();
+  }
+  lookUp(){
+    console.log("search at navbar",this.search);
+    this.service.changeMessage(this.search);
+
   }
 
 

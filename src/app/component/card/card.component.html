@@ -1,6 +1,6 @@
 <div *ngIf="currentView">
 <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
-  <div *ngFor="let note of cardsArray" >
+  <div *ngFor="let note of cardsArray  | search:search " >
     <div>
       <mat-card  class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color"  >
         <div fxLayout="row">
@@ -19,7 +19,7 @@
           </mat-chip>
         </mat-chip-list>
         </div>
-        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" [items]="note"></app-noteicons>
+        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" (deleteNoteEvent)="receivedeleteNoteEvent($event)"   (archiveCardEvent)="receivearchiveCardEvent($event)" [items]="note"></app-noteicons>
       </mat-card> 
     </div>
   </div>
@@ -30,7 +30,7 @@
 <div fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
   <div *ngFor="let note of cardsArray" >
     <div>
-      <mat-card  class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color" >
+      <mat-card  class="width" (click)="getNotes(note)"   [style.backgroundColor]="note.color">
         <div fxLayout="row">
           <div class="title"  (click)="openDialog(note)">{{note.title}}</div>
           <div><img src="../../../assets/image/pin.svg" class="pin"></div>
@@ -39,7 +39,7 @@
         <mat-card-content fxLayout="column">
           <div >{{note.description}}</div>
         </mat-card-content>
-        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)"  [items]="note"></app-noteicons>
+        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)"  (deleteNoteEvent)="receivedeleteNoteEvent($event)"  (archiveCardEvent)="receivearchiveCardEvent($event)" [items]="note"></app-noteicons>
       
       </mat-card>
     </div>

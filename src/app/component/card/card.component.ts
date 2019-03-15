@@ -21,8 +21,9 @@ export class CardComponent implements OnInit {
   flag: boolean;
   // reminder: any;
   constructor(private service: noteService,private viewService:ViewChangeServiceService, public dialog: MatDialog) { }
+  
   // @Input() items: any;
-
+  @Input() search:string;
   ngOnInit() {
     this.getCards();
     console.log("items on cardts", this.items);
@@ -38,6 +39,14 @@ export class CardComponent implements OnInit {
 
   }
 
+  receivedeleteNoteEvent($event){
+      this.getCards();
+  }
+
+  receivearchiveCardEvent($event){
+    this.getCards();
+  }
+
 
   receiveUpdateColorEvent($event) {
     this.setColor1 = $event;
@@ -46,13 +55,13 @@ export class CardComponent implements OnInit {
     console.log("notes received:", this.note);
 
     const updateColor = {
-      _id: this.note._id,
+      noteId: this.note._id,
       color: this.setColor1
     }
     console.log("color received:", updateColor);
     this.service.updateColor(updateColor).subscribe(
       data => {
-        console.log(data);
+        console.log("data on updateColor--55",data);
         this.getCards()
       },
       error => {
