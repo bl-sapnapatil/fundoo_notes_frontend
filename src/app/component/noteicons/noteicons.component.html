@@ -4,7 +4,7 @@
     </button>
 
 
-    <button mat-icon-button>
+    <button mat-icon-button  (click)="openDialog()">
         <img src="../../../assets/image/download (2).svg" matTooltip="Collaborator">
     </button>
 
@@ -68,7 +68,7 @@
 
     </mat-menu>
 
-    <mat-menu #items="matMenu" class="moreVertMenu">
+    <mat-menu #items="matMenu" class="moreVertMenu" (click)="$event.stopPropagation()">
         <button mat-menu-item (click)="deleteNote()">Delete note</button>
         <button mat-menu-item [matMenuTriggerFor]="addlabel">Add label</button>
         <button mat-menu-item>Add drawing</button>
@@ -77,7 +77,7 @@
         <button mat-menu-item>Copy to Google Docs</button>
 
     </mat-menu>
-    <mat-menu #addlabel="matMenu" class="addlabel">
+    <mat-menu #addlabel="matMenu" class="addlabel" (click)="$event.stopPropagation()">
         <label>Label note</label>
         <div class="size">
             <input matInput placeholder="Enter label name">

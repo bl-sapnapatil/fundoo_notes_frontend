@@ -34,7 +34,7 @@ export class ArchiveComponent implements OnInit {
     this.service.getArchivedNotes(data).subscribe(
       data => {
          this.items = data['result'];
-         console.log(this.items);
+         console.log(this.items);   
       },
       error => {
         console.log('error response: ', error);

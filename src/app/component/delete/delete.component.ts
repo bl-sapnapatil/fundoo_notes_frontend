@@ -23,7 +23,8 @@ export class DeleteComponent implements OnInit {
     this.service.getBin(data).subscribe(
       data => {
          this.items = data['result'];
-         console.log(this.items);  
+         console.log(this.items);
+           
       },
       error => {
         console.log('error response: ', error);

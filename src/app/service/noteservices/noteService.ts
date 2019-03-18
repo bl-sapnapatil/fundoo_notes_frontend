@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment';
     providedIn: 'root'
 })
 export class noteService {
+ 
    public  apiBaseurl = environment.apiBaseurl;
     constructor(private http: HttpClient) { }
 
@@ -46,7 +47,9 @@ export class noteService {
     }
     getArchivedNotes(data){
         console.log("data in archivednotes--43",data);
-        return this.http.get(this.apiBaseurl+ 'getArchived' + '/', data.userID);
+        // console.log(this.apiBaseurl+ 'getArchived' + '/'+ data.userID);
+         return this.http.get(this.apiBaseurl+ 'getArchived' + '/'+ data.userID);
+        
     }
 
     getReminder(data){
@@ -57,5 +60,6 @@ export class noteService {
         console.log("data in deletednotes--43",data);
         return this.http.get(this.apiBaseurl+ 'getBin' + '/' + data.userID);
     }
-}
 
+    
+}

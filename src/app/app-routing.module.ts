@@ -12,6 +12,7 @@ import { DeleteComponent } from './component/delete/delete.component';
 import { DialogComponent } from './component/dialog/dialog.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { SearchComponent } from './component/search/search.component';
+import { CollabdialogComponent } from './component/collabdialog/collabdialog.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [

@@ -64,6 +64,7 @@ import { LabelComponent } from './component/label/label.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { SearchComponent } from './component/search/search.component';
 import { PipePipe } from './pipe/pipe.pipe';
+import { CollabdialogComponent } from './component/collabdialog/collabdialog.component';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import { PipePipe } from './pipe/pipe.pipe';
     ReminderComponent,
     SearchComponent,
     PipePipe,
+    CollabdialogComponent,
    
   ],
   imports: [
@@ -145,6 +147,7 @@ import { PipePipe } from './pipe/pipe.pipe';
   ],
   entryComponents: [
     DialogComponent,
+    CollabdialogComponent
     ],
   providers: [HttpService],
   bootstrap: [AppComponent]

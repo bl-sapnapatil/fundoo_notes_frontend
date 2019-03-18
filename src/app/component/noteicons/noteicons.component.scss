@@ -45,15 +45,14 @@
     overflow: hidden;
 }
 /deep/.mat-menu-panel.moreVertMenu{
-    height: 270px;
+    height: 280px;
     width: 173px;
+    overflow: hidden;
 }
 .size{
     margin-top: 13px;
 }
-// /deep/.dateTimePicker{
 
-// }
 .arrow{
     margin-left: 230px;
 }
@@ -83,4 +82,8 @@
 }
 .Options{
     margin-left: 12px;
+}
+/deep/.mat-menu-panel.addlabel{
+    width: 164px;
+    height: 96px;
 }

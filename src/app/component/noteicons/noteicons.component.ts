@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NgForm, Validators, FormControl } from '@angular/forms';
 import { noteService } from '../../service/noteservices/noteService';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { MomentModule } from 'ngx-moment';
+import { CollabdialogComponent } from '../collabdialog/collabdialog.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class NoteiconsComponent implements OnInit {
   d: Date;
   d1: Date;
 
-  constructor(private noteService: noteService, private snackBar: MatSnackBar) { }
+  constructor(private noteService: noteService, private snackBar: MatSnackBar, public dialog: MatDialog) { }
   @Input() items: any;
   @Input() note: any;
   @Input() childMessage: any = "";
@@ -103,6 +104,15 @@ export class NoteiconsComponent implements OnInit {
   }
 
 
+  openDialog() {
+    const dialogRef = this.dialog.open(CollabdialogComponent, {
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+    err =>{
+
+    }
+  }
 
 
   setLaterToday() {
@@ -176,6 +186,8 @@ export class NoteiconsComponent implements OnInit {
         console.log(err);
       });
 }
+
+
 }
 
 
