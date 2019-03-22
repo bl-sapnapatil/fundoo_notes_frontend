@@ -87,3 +87,6 @@
     width: 164px;
     height: 96px;
 }
+/deep/.paddingDiv:focus {
+    outline: 0;
+  }

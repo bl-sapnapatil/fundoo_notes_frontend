@@ -25,8 +25,10 @@ export class HttpService {
     password: ''
   };
 
-  postUser(user, url) {
-
+  postUser(user, url:string) {
+    console.log(url);
+    console.log("user data at service: ",user);
+    
     var httpOptions = {
       headers: new HttpHeaders // create header object
         ({
@@ -34,8 +36,10 @@ export class HttpService {
         }),
     };
     // set header in your http request
-    return this.http.post(this.apiBaseurl + url, user, httpOptions);
+    return this.http.post(this.apiBaseurl + url,user);
   }
+
+ 
 
   resetpassword(data, purpose: string) {
     let headers = new HttpHeaders({

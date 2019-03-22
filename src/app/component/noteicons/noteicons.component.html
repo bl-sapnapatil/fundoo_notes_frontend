@@ -82,6 +82,9 @@
         <div class="size">
             <input matInput placeholder="Enter label name">
         </div>
+        <div *ngFor="let labels of label">
+            <mat-checkbox></mat-checkbox>
+        </div>
     </mat-menu>
 
 

@@ -19,6 +19,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MomentModule } from 'ngx-moment';
+
+
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -65,7 +67,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { SearchComponent } from './component/search/search.component';
 import { PipePipe } from './pipe/pipe.pipe';
 import { CollabdialogComponent } from './component/collabdialog/collabdialog.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +90,9 @@ import { CollabdialogComponent } from './component/collabdialog/collabdialog.com
     SearchComponent,
     PipePipe,
     CollabdialogComponent,
+    ProfilePicComponent,
+  
+    
    
   ],
   imports: [
@@ -143,11 +149,13 @@ import { CollabdialogComponent } from './component/collabdialog/collabdialog.com
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    MomentModule
+    MomentModule,
+    ImageCropperModule
   ],
   entryComponents: [
     DialogComponent,
-    CollabdialogComponent
+    CollabdialogComponent,
+    ProfilePicComponent
     ],
   providers: [HttpService],
   bootstrap: [AppComponent]

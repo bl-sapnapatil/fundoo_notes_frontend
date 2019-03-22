@@ -19,6 +19,7 @@ export class CardComponent implements OnInit {
   currentView:boolean;
   d: Date;
   flag: boolean;
+  labels: any;
   // reminder: any;
   constructor(private service: noteService,private viewService:ViewChangeServiceService, public dialog: MatDialog) { }
   
@@ -94,7 +95,23 @@ export class CardComponent implements OnInit {
         console.log('error response: ', error);
       }
     )
-  }
+  }  
+
+  // getLabels(){
+  //   const data = {
+  //     userID: localStorage.getItem('id')
+  //   };
+  //   this.service.getNotes(data).subscribe(
+  //    data => {
+  //      this.labels =data['result'];
+  //      console.log("nnnn---107",this.labels);
+  //     },
+  //     error => {
+  //       console.log('error response: ', error);
+  //     }
+  //   )
+  // }
+
 
   getNotes(note) {
     // console.log("note in getNotes---60",note);

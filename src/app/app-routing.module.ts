@@ -13,6 +13,7 @@ import { DialogComponent } from './component/dialog/dialog.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { SearchComponent } from './component/search/search.component';
 import { CollabdialogComponent } from './component/collabdialog/collabdialog.component';
+import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [

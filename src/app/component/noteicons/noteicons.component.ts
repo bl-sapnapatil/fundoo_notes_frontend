@@ -103,6 +103,10 @@ export class NoteiconsComponent implements OnInit {
 
   }
 
+  // getLabels(){
+  //   this.labels =data['result'];
+  // }
+
 
   openDialog() {
     const dialogRef = this.dialog.open(CollabdialogComponent, {

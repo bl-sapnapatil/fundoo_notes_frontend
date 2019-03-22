@@ -62,7 +62,7 @@ export class RegistrationComponent implements OnInit {
         lastName: this.Lastname.value,
         password: this.password.value,
       }
-      this.httpService.postUser(reqbody, '/registration').subscribe(
+      this.httpService.postUser(reqbody, 'registration').subscribe(
         res => {
           console.log(res);
           //snackBar is used to show message.

@@ -38,18 +38,16 @@
         <mat-menu #menu2="matMenu" class="size">
             <div class="size1">
                 <div>
-                    <div class="circle">
-                        <!-- <form action="uploadImage">
-                            <input type="file" name="pic" accept="image/*">
-                          </form> -->
-                          <!-- <i><img src="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg" width="30" /></i> -->
-                          <figure>
-                            <img src="https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg" alt="image">
-                          </figure>
+                    <div  class="circle"  (click)="openDialog()">
+                        <!-- <input type="file" class="input" (change)="fileChangeEvent($event)" />
+
+                        <image-cropper [imageChangedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)">
+                        </image-cropper> -->
+                        <img [src]="imgUrl" class="image">
                     </div>
                 </div>
                 <div>
-                     <h4 class="mainHeading">sapna patil</h4>
+                    <h4 class="mainHeading">sapna patil</h4>
                     <p class="subHeading"> sapnapatil344@gmail.com</p>
                 </div>
 
@@ -71,7 +69,7 @@
     <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
         (closed)="events.push('close!')">
         <mat-list>
-            <mat-list-item fxLayoutGap="20" [routerLink]="['addNote']" (click)="note()" id="note">
+            <mat-list-item fxLayoutGap="20" [routerLink]="['addNote']" class="notesRouter" (click)="note()" id="note">
                 <img src="../../../assets/image/lightbulb.svg" class="icon">
                 <label class="title">Notes</label>
             </mat-list-item>
@@ -105,4 +103,7 @@
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
-<!-- </div> -->
+
+
+
+

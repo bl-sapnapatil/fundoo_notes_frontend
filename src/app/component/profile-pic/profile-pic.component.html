@@ -1,0 +1,41 @@
+<div class="width-dialog">
+  <div>
+    <div *ngIf="fileUpload.status==='error'">
+      <div [innerHTML]="fileUpload.message"></div>
+    </div>
+    <div *ngIf="fileUpload.status==='progress'">
+      <div>
+        <div>{{fileUpload.message}}%</div>
+      </div>
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit(croppedImage)">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title class="example-name-main">Fundoo</mat-card-title>
+          <mat-card-subtitle class="example-name">Profile</mat-card-subtitle>
+
+        </mat-card-header>
+        <div>
+          <input type="file" (change)="onSelectedFile($event)" />
+        </div>
+
+        <div>
+          <mat-card-actions>
+            <button class="button">Upload</button>
+          </mat-card-actions>
+        </div>
+
+      </mat-card>
+    </form>
+
+    <image-cropper [imageChangedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)">
+    </image-cropper>
+
+    <img name="profile1" [src]="croppedImage" />
+
+    <div *ngIf="fileUpload.status==='success'">
+      <img [src]="fileUpload.filePath" height="200px" />
+    </div>
+    <p>{{ error }}</p>
+  </div>
+</div>

@@ -60,6 +60,20 @@ export class noteService {
         console.log("data in deletednotes--43",data);
         return this.http.get(this.apiBaseurl+ 'getBin' + '/' + data.userID);
     }
+    imageupload(image) {
+        console.log("image at service: ",image);
+        
+        const userID =localStorage.getItem('id');
+        const formData = new FormData();
+        formData.append('image',image);
+        console.log("image at service: ",formData);
+        
+        return this.http.post(this.apiBaseurl+ 'imageupload'+"/"+userID,formData);
+    }
+    getProfile(data){
+        return this.http.get(this.apiBaseurl+ 'getProfile' + '/' + data.userID);
+    }
 
-    
 }
+    
+

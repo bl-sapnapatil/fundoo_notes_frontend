@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       email: this.email.value,
       password: this.password.value
     }
-    this.httpService.postUser(reqbody, '/login').subscribe(
+    this.httpService.postUser(reqbody, 'login').subscribe(
       res => {
         var data = res['result'];
         console.log("data: ",data.id);
