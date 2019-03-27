@@ -38,7 +38,7 @@ export class ProfilePicComponent implements OnInit {
   }
 
   onSubmit(croppedImage) {
-    // console.log(croppedImage);
+     console.log(croppedImage);
    
     this.service.imageupload(croppedImage).subscribe(
       data =>{

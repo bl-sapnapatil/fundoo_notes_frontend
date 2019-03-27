@@ -16,6 +16,10 @@ export class NoteiconsComponent implements OnInit {
   archiveValue: boolean;
   d: Date;
   d1: Date;
+  labelArray: any = [];
+  data: any;
+  labelArray1: any;
+  // labelsarray: any[];
 
   constructor(private noteService: noteService, private snackBar: MatSnackBar, public dialog: MatDialog) { }
   @Input() items: any;
@@ -26,23 +30,24 @@ export class NoteiconsComponent implements OnInit {
   @Output() updateColorForDialogBox = new EventEmitter<any>();
   @Output() deleteNoteEvent = new EventEmitter<any>();
   @Output() archiveCardEvent = new EventEmitter<any>();
+  @Output() addLabelEvent = new EventEmitter<any>();
   // @Output() reminderEvent = new EventEmitter<any>();
 
   ngOnInit() {
-    // console.log("items", this.items);
+    this.getLabels();
   }
   dPicker = new FormControl('');
   tPicker = new FormControl('');
- 
-  
+
+
 
   arrayOfColors = [
     [
 
       { 'color': 'rgb(255,255,255)', 'name': 'White' },
-      { 'color': 'rgb(242, 139, 130)', 'name':'Red' },
+      { 'color': 'rgb(242, 139, 130)', 'name': 'Red' },
       { 'color': 'rgb(251, 188, 4)', 'name': 'Orange' },
-      { 'color': 'rgb(255, 244, 117)', 'name':'yellow' }],
+      { 'color': 'rgb(255, 244, 117)', 'name': 'yellow' }],
     [
       { 'color': 'rgb(204, 255, 144)', 'name': 'Green' },
       { 'color': 'rgb(167, 255, 235)', 'name': 'teal' },
@@ -63,7 +68,7 @@ export class NoteiconsComponent implements OnInit {
   }
 
 
- deleteNote(){
+  deleteNote() {
     console.log("items in cards for delete", this.items);
     const deleteNote = {
       "_id": this.items._id,
@@ -71,12 +76,12 @@ export class NoteiconsComponent implements OnInit {
     }
     console.log("after delete", deleteNote);
     this.noteService.deletedNotes(deleteNote).subscribe(
-     data => {
-      this.snackBar.open("note deleted successfully", "", { duration: 5000 });
-      this.deleteNoteEvent.emit("done");
+      data => {
+        this.snackBar.open("note deleted successfully", "", { duration: 5000 });
+        this.deleteNoteEvent.emit("done");
       },
       err => {
-      this.snackBar.open("note not deleted successfully", "", { duration: 5000 });
+        this.snackBar.open("note not deleted successfully", "", { duration: 5000 });
       }
     )
 
@@ -103,17 +108,13 @@ export class NoteiconsComponent implements OnInit {
 
   }
 
-  // getLabels(){
-  //   this.labels =data['result'];
-  // }
-
 
   openDialog() {
     const dialogRef = this.dialog.open(CollabdialogComponent, {
     });
     dialogRef.afterClosed().subscribe(result => {
     });
-    err =>{
+    err => {
 
     }
   }
@@ -174,22 +175,65 @@ export class NoteiconsComponent implements OnInit {
       err => {
         console.log(err);
       })
-    
+
   }
 
-  saveReminder(){
-    console.log("picked date: ",this.dPicker.value);
-     var date = this.dPicker.value.toLocaleDateString() + "," + this.tPicker.value;
-     this.items.reminder = date;
-     console.log("date in SaveReminder--",date);
-     this.noteService.updateNote(this.items).subscribe(
+  saveReminder() {
+    console.log("picked date: ", this.dPicker.value);
+    var date = this.dPicker.value.toLocaleDateString() + "," + this.tPicker.value;
+    this.items.reminder = date;
+    console.log("date in SaveReminder--", date);
+    this.noteService.updateNote(this.items).subscribe(
       data => {
         console.log("data", data);
       },
       err => {
         console.log(err);
       });
-}
+  }
+
+
+  getLabels() {
+    const data = {
+      userID: localStorage.getItem('id')
+    };
+    console.log("data on getLabels", data);
+
+    this.noteService.getLabels(data).subscribe(
+      data => {
+        this.labelArray= data['result'];
+        console.log("getlabelsarray", this.labelArray);
+      },
+      error => {
+        console.log('error response: ', error);
+      }
+    )
+  }
+
+
+  addLabel(label) {
+    console.log("data on items in addlabeltonote", label);
+    var addLabel = {
+      "noteId": this.items._id,
+      "labelData": {
+          "labelName": label.labelName,
+          "labelid":label._id
+      }
+    }
+    console.log("label Name",addLabel);
+    // // console.log("label id",this.label._id);
+    this.noteService.addLabeltoNote(addLabel).subscribe(
+      data => {
+        //  this.labelArray = data['result'];
+        console.log(" add labels array", this.labelArray);
+        this.addLabelEvent.emit("done");
+      },
+      err => {
+        console.log('error response: ', err);
+      }
+    )
+  }
+
 
 
 }

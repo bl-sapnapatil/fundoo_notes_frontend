@@ -20,6 +20,7 @@ export class CardComponent implements OnInit {
   d: Date;
   flag: boolean;
   labels: any;
+  labelArray: any = [];
   // reminder: any;
   constructor(private service: noteService,private viewService:ViewChangeServiceService, public dialog: MatDialog) { }
   
@@ -31,9 +32,7 @@ export class CardComponent implements OnInit {
     this.viewService.currentView.subscribe(
       (response)=>{
         this.currentView=response;
-      }
-    )
-    
+      })
     if(this.items.reminder !== null){
       this.d = new Date(this.items.reminder)
     }
@@ -45,6 +44,10 @@ export class CardComponent implements OnInit {
   }
 
   receivearchiveCardEvent($event){
+    this.getCards();
+  }
+
+  receiveaddLabelEvent($event){
     this.getCards();
   }
 
@@ -97,20 +100,7 @@ export class CardComponent implements OnInit {
     )
   }  
 
-  // getLabels(){
-  //   const data = {
-  //     userID: localStorage.getItem('id')
-  //   };
-  //   this.service.getNotes(data).subscribe(
-  //    data => {
-  //      this.labels =data['result'];
-  //      console.log("nnnn---107",this.labels);
-  //     },
-  //     error => {
-  //       console.log('error response: ', error);
-  //     }
-  //   )
-  // }
+  
 
 
   getNotes(note) {
@@ -153,7 +143,7 @@ export class CardComponent implements OnInit {
     note.reminder=null;
     this.service.updateNote(note).subscribe(
       data => {
-        console.log("data", data);
+        // console.log("data", data);
         this.getCards();
       },
       err => {
@@ -162,6 +152,28 @@ export class CardComponent implements OnInit {
       })
 
   }
+
+
+  removeLabel(label , note)
+  {  
+    var remlabel = {
+    "noteId":note._id,
+   "labelName": label.labelName
+  }
+  // console.log("ffffffffff",remlabel);
+  
+  this.service.removeLabel(remlabel).subscribe(
+   data => {
+        // console.log("data",data);  
+        this.getCards();
+    },
+    err=>{
+      console.log(err);   
+    })
+    
+  }
+
+ 
 
 
 }

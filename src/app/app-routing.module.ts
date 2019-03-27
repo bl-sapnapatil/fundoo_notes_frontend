@@ -14,6 +14,8 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { SearchComponent } from './component/search/search.component';
 import { CollabdialogComponent } from './component/collabdialog/collabdialog.component';
 import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
+import { AuthGuardService } from './service/auth.guard';
+import { LabelComponent } from './component/label/label.component';
 
 //defined an array for our routes, named routes
 const routes: Routes = [
@@ -45,6 +47,7 @@ const routes: Routes = [
   
   {
     path: 'navbar',
+    canActivate : [AuthGuardService],
     component: NavbarComponent, children: [
       {
         path: '',    //a blank route i.e when no other route is found in the URL after the domain name, we are mapping it to LoginComponent.
@@ -70,6 +73,10 @@ const routes: Routes = [
         path: 'search',
         component:  SearchComponent
       },
+      // {
+      //   path:'label',
+      //   component:LabelComponent
+      // }
     ]
   },
 ];

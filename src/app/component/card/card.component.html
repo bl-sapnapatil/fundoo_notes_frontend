@@ -19,7 +19,15 @@
           </mat-chip>
         </mat-chip-list>
         </div>
-        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" (deleteNoteEvent)="receivedeleteNoteEvent($event)"   (archiveCardEvent)="receivearchiveCardEvent($event)" [items]="note"></app-noteicons>
+        <div class="chip" *ngFor="let label of note.labels">
+          <mat-chip-list >
+           <mat-chip *ngIf ="note.labels">
+             {{label.labelName}}
+            <mat-icon matChipRemove  (click)="removeLabel(label,note)">close</mat-icon>
+           </mat-chip>
+         </mat-chip-list>
+         </div>
+        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" (deleteNoteEvent)="receivedeleteNoteEvent($event)"   (archiveCardEvent)="receivearchiveCardEvent($event)"  (addLabelEvent)="receiveaddLabelEvent()" [items]="note"></app-noteicons>
       </mat-card> 
     </div>
   </div>
@@ -34,7 +42,16 @@
         <div fxLayout="row">
           <div class="title"  (click)="openDialog(note)">{{note.title}}</div>
           <div><img src="../../../assets/image/pin.svg" class="pin"></div>
-          
+          <!-- <div *ngIf=" label != undefined"> -->
+          <div class="chip" *ngFor="let label of note.labels">
+            <mat-chip-list >
+             <mat-chip *ngIf ="note.labels">
+               {{label.labelName}}
+              <mat-icon matChipRemove  (click)="removeLabel(note)">close</mat-icon>
+             </mat-chip>
+           </mat-chip-list>
+           </div> 
+          <!-- </div> -->
         </div>
         <mat-card-content fxLayout="column">
           <div >{{note.description}}</div>
@@ -48,6 +65,4 @@
 </div>
 
 
-<!-- [ngClass]="{'width':!show= column wrap}"
- -->
 

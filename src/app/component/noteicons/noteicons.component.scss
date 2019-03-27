@@ -85,8 +85,16 @@
 }
 /deep/.mat-menu-panel.addlabel{
     width: 164px;
-    height: 96px;
+    height: 180px;
+    overflow: hidden;
 }
 /deep/.paddingDiv:focus {
     outline: 0;
+  }
+  .labels12{
+      margin-top: 8px;
+      margin-left: 10px;
+  }
+  .labelNote{
+      margin-left: 10px;
   }

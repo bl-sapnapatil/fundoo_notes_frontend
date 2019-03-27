@@ -6,6 +6,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { ProfilePicComponent } from '../profile-pic/profile-pic.component';
 import { noteService } from 'src/app/service/noteservices/noteService';
+import { LabelComponent } from '../label/label.component';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
   imageChangedEvent: any = '';
   croppedImage: any = '';
   imgUrl: any;
+  label: any;
 
 
   constructor(private router: Router, private viewService: ViewChangeServiceService, private service: SearchService,public dialog: MatDialog,private service1: noteService) { }
@@ -38,11 +40,13 @@ export class NavbarComponent implements OnInit {
          console.log("imgUrl at navbar",this.imgUrl); 
       })
       this.getProfile();
+      this.getLabels();
   }
   addAccount() {
     this.router.navigate(['register']);
   }
   signout() {
+    localStorage.clear();
     this.router.navigate(['login']);
   }
   note() {
@@ -86,6 +90,16 @@ export class NavbarComponent implements OnInit {
   }
 
 
+  openDialog1() {
+    const dialogRef = this.dialog.open(LabelComponent, {
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+    err =>{
+    }
+  }
+
+
   getProfile() {
     const data = {
       userID: localStorage.getItem('id')
@@ -98,6 +112,24 @@ export class NavbarComponent implements OnInit {
         console.log((data as any));
         this.imgUrl = (data as any).result[0].profilePic;
         // console.log("profile: ",imgUrl);
+      },
+      error => {
+        console.log('error response: ', error);
+      }
+    )
+  }
+
+
+  getLabels() {
+    const data = {
+      userID: localStorage.getItem('id')
+    };
+    console.log("data on getLabels",data);
+    
+    this.service1.getLabels(data).subscribe(
+      data => {
+        this.label = data['result'];
+        console.log("nnnn---107", this.label);
       },
       error => {
         console.log('error response: ', error);

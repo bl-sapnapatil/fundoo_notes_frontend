@@ -69,6 +69,7 @@ import { PipePipe } from './pipe/pipe.pipe';
 import { CollabdialogComponent } from './component/collabdialog/collabdialog.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
+import { AuthGuardService } from './service/auth.guard';
 
 @NgModule({
   declarations: [
@@ -155,9 +156,10 @@ import { ProfilePicComponent } from './component/profile-pic/profile-pic.compone
   entryComponents: [
     DialogComponent,
     CollabdialogComponent,
-    ProfilePicComponent
+    ProfilePicComponent,
+    LabelComponent
     ],
-  providers: [HttpService],
+  providers: [HttpService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 

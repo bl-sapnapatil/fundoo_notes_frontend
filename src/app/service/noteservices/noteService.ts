@@ -48,8 +48,7 @@ export class noteService {
     getArchivedNotes(data){
         console.log("data in archivednotes--43",data);
         // console.log(this.apiBaseurl+ 'getArchived' + '/'+ data.userID);
-         return this.http.get(this.apiBaseurl+ 'getArchived' + '/'+ data.userID);
-        
+         return this.http.get(this.apiBaseurl+ 'getArchived' + '/'+ data.userID);   
     }
 
     getReminder(data){
@@ -60,6 +59,12 @@ export class noteService {
         console.log("data in deletednotes--43",data);
         return this.http.get(this.apiBaseurl+ 'getBin' + '/' + data.userID);
     }
+
+    getLabels(data){
+        console.log("data in deletednotes--43",data);
+        return this.http.get(this.apiBaseurl+ 'getLabels' + '/' + data.userID);
+    }
+    
     imageupload(image) {
         console.log("image at service: ",image);
         
@@ -74,6 +79,18 @@ export class noteService {
         return this.http.get(this.apiBaseurl+ 'getProfile' + '/' + data.userID);
     }
 
+    addLabeltoNote(data){
+        console.log("data on addLabel to note",data);
+        return this.http.post(this.apiBaseurl+ 'addLabeltoNote'+ '/',data);
+    }
+     
+    removeLabel(data){
+        console.log("data on removeLabel to note",data);
+        return this.http.post(this.apiBaseurl+ 'removeLabel'+ '/',data);
+    }
+    addLabel(data){
+        return this.http.post(this.apiBaseurl+'addLabel'+ '/',data);
+    }
 }
     
 

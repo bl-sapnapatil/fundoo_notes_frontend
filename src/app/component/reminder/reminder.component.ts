@@ -23,29 +23,13 @@ export class ReminderComponent implements OnInit {
     this.service.getReminder(data).subscribe(
       data => {
          this.items = data['result'];
-         console.log(this.items);
+         console.log("get reminder data: ",this.items);
          
       },
       error => {
         console.log('error response: ', error);
       }
     )
-  }
-
-
-  removeReminder(note)
-  { 
-    console.log("data in items",note);
-    note.reminder=null;
-    this.service.updateNote(note).subscribe(
-      data => {
-        console.log("data", data);
-      },
-      err => {
-        console.log(err);
-
-      })
-
   }
 
 }

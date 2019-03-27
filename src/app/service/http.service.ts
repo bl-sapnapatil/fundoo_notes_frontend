@@ -4,7 +4,6 @@ import { Registeruser } from '../model/registermodel';
 import { Loginuser } from '../model/loginmodel';
 import { environment } from '../../environments/environment';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -51,7 +50,10 @@ export class HttpService {
     return this.http.post(this.apiBaseurl + purpose, data, { headers: headers })
 
   }
-   
+
+  isAuthenticated(){
+    return !!localStorage.getItem('token');
+  }
 
 
 }

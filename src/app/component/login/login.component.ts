@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm, Validators, FormControl } from '@angular/forms';
 import { HttpService } from 'src/app/service/http.service';
 import { MatSnackBar } from '@angular/material';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-login',
@@ -41,8 +41,9 @@ export class LoginComponent implements OnInit {
     this.httpService.postUser(reqbody, 'login').subscribe(
       res => {
         var data = res['result'];
-        console.log("data: ",data.id);
+        console.log("data after login: ",res);
         localStorage.setItem('id',data.id)
+        localStorage.setItem('token',(res as any).token);
         //snackbar to show messages.
         this.snackBar.open("you are logged in!!", "ok", { duration: 5000 });
          this.router.navigateByUrl('navbar');

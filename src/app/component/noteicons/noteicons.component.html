@@ -4,7 +4,7 @@
     </button>
 
 
-    <button mat-icon-button  (click)="openDialog()">
+    <button mat-icon-button (click)="openDialog()">
         <img src="../../../assets/image/download (2).svg" matTooltip="Collaborator">
     </button>
 
@@ -78,13 +78,15 @@
 
     </mat-menu>
     <mat-menu #addlabel="matMenu" class="addlabel" (click)="$event.stopPropagation()">
-        <label>Label note</label>
+        <label class="labelNote">Label note</label>
         <div class="size">
-            <input matInput placeholder="Enter label name">
+            <input matInput placeholder="Enter label name" class="labelNote"  (click)="$event.stopPropagation()">
         </div>
-        <div *ngFor="let labels of label">
-            <mat-checkbox></mat-checkbox>
+        <div *ngIf="labelArray != undefined">
+        <div *ngFor="let label of labelArray" class="labels12" (click)="addLabel(label)">
+            <mat-checkbox>{{label.labelName}}</mat-checkbox>
         </div>
+    </div>
     </mat-menu>
 
 
@@ -113,12 +115,6 @@
             <label>save</label>
         </button>
     </mat-menu>
-
-
-
-
-
-
 
 
 </div>
