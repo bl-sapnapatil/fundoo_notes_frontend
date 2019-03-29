@@ -91,6 +91,10 @@ export class noteService {
     addLabel(data){
         return this.http.post(this.apiBaseurl+'addLabel'+ '/',data);
     }
+    deleteLabel(data){
+        return this.http.post(this.apiBaseurl+ 'deleteLabel'+ '/',data);
+    }
+    
 }
     
 

@@ -10,6 +10,13 @@ export class ViewChangeServiceService {
 
   private imgSource = new BehaviorSubject(" ");
   currentImg = this.imgSource.asObservable();
+
+  private addlabel = new BehaviorSubject(" ");
+  currentlabel = this.addlabel.asObservable();
+
+  private deletelabel = new BehaviorSubject(" ");
+  dellabel = this.deletelabel.asObservable();
+
   private views;
 
   constructor() { }
@@ -20,9 +27,20 @@ export class ViewChangeServiceService {
       });
     this.view.next(!this.views)
   }
+
   searchImg(data: string) {
     this.imgSource.next(data);
-    console.log("hhhh",data);
+    console.log("hhhh",data);  
+  }
+  
+  createLabel(data: any){
+    this.addlabel.next(data);
+    console.log("data--35",data); 
+  }
+   
+  deleteLabel(data:any){
+    this.deletelabel.next(data)
+    // console.log("data");
     
   }
 }

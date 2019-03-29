@@ -10,8 +10,15 @@
   <mat-icon class="labels">done</mat-icon>
 </button>
 </div>
-<div *ngFor="let labels of label">
-  <img src="../../../assets/image/newlabel.svg"  class="labels"  style="margin-left: 8px;">
+<div *ngFor="let labels of label" fxLayout="row" fxLayoutAlign="column">
+  <div (mouseover)="changeText=true" (mouseout)="changeText=false">
+    <span *ngIf="!changeText">
+      <img src="../../../assets/image/newlabel.svg"  class="labels"  style="margin-left: 8px;">
+    </span>
+    <span *ngIf="changeText">
+      <mat-icon class="delete" (click)="delete(labels)">delete</mat-icon>
+    </span>
+  </div>
   <span class="labels1">{{labels.labelName}}</span>
 </div>
 <mat-divider></mat-divider>

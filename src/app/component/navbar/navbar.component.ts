@@ -27,20 +27,28 @@ export class NavbarComponent implements OnInit {
   label: any;
 
 
-  constructor(private router: Router, private viewService: ViewChangeServiceService, private service: SearchService,public dialog: MatDialog,private service1: noteService) { }
+  constructor(private router: Router, private viewService: ViewChangeServiceService, private service: SearchService, public dialog: MatDialog, private service1: noteService) { }
 
   ngOnInit() {
     this.viewService.currentView.subscribe(
       response => {
         this.show = response;
       });
-      this.viewService.currentImg.subscribe(
+    this.viewService.currentImg.subscribe(
+      data => {
+        this.imgUrl = data;
+        console.log("imgUrl at navbar", this.imgUrl);
+      });
+    this.viewService.currentlabel.subscribe(
+      data => {
+        this.getLabels();
+      });
+      this.viewService.dellabel.subscribe(
         data =>{
-         this.imgUrl = data;
-         console.log("imgUrl at navbar",this.imgUrl); 
-      })
-      this.getProfile();
-      this.getLabels();
+           this.getLabels();
+      });
+    this.getProfile();
+    this.getLabels();
   }
   addAccount() {
     this.router.navigate(['register']);
@@ -85,7 +93,7 @@ export class NavbarComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
     });
-    err =>{
+    err => {
     }
   }
 
@@ -95,7 +103,7 @@ export class NavbarComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
     });
-    err =>{
+    err => {
     }
   }
 
@@ -104,10 +112,10 @@ export class NavbarComponent implements OnInit {
     const data = {
       userID: localStorage.getItem('id')
     };
-    console.log("data on getProfile",data);
+    console.log("data on getProfile", data);
     this.service1.getProfile(data).subscribe(
       data => {
-        console.log("user data at navbar",data);
+        console.log("user data at navbar", data);
 
         console.log((data as any));
         this.imgUrl = (data as any).result[0].profilePic;
@@ -124,8 +132,8 @@ export class NavbarComponent implements OnInit {
     const data = {
       userID: localStorage.getItem('id')
     };
-    console.log("data on getLabels",data);
-    
+    console.log("data on getLabels", data);
+
     this.service1.getLabels(data).subscribe(
       data => {
         this.label = data['result'];

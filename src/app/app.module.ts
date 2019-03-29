@@ -70,6 +70,10 @@ import { CollabdialogComponent } from './component/collabdialog/collabdialog.com
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { ProfilePicComponent } from './component/profile-pic/profile-pic.component';
 import { AuthGuardService } from './service/auth.guard';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
 
 @NgModule({
   declarations: [
@@ -151,7 +155,9 @@ import { AuthGuardService } from './service/auth.guard';
     MatTooltipModule,
     MatTreeModule,
     MomentModule,
-    ImageCropperModule
+    ImageCropperModule,
+    AngularFireModule,
+    AngularFireDatabaseModule
   ],
   entryComponents: [
     DialogComponent,

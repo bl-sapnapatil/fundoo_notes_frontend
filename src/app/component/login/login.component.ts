@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
       res => {
         var data = res['result'];
         console.log("data after login: ",res);
-        localStorage.setItem('id',data.id)
+        localStorage.setItem('id',data.id);
+        
         localStorage.setItem('token',(res as any).token);
         //snackbar to show messages.
         this.snackBar.open("you are logged in!!", "ok", { duration: 5000 });

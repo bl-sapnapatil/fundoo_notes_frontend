@@ -12,7 +12,6 @@ export class SearchService {
   constructor() { }
    changeMessage(message: string) {
     this.messageSource.next(message)
-    console.log("message at service: ",message);
-    
+    console.log("message at service: ",message); 
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { noteService } from 'src/app/service/noteservices/noteService';
 import { FormControl } from '@angular/forms';
+import { ViewChangeServiceService } from 'src/app/service/view-change-service.service';
 
 @Component({
   selector: 'app-label',
@@ -9,11 +10,12 @@ import { FormControl } from '@angular/forms';
 })
 export class LabelComponent implements OnInit {
   label: any;
+  changeText: boolean;
 
-  constructor(private service1: noteService) { }
+  constructor(private service1: noteService,private data : ViewChangeServiceService) {this.changeText = false; }
 
   ngOnInit() {
-    this.getLabels();
+  this.getLabels();
   }
   createlabel = new FormControl('');
 
@@ -42,8 +44,9 @@ export class LabelComponent implements OnInit {
     }
     console.log("createlabel",label);  
     this.service1.addLabel(label).subscribe(
-      data =>{
-          console.log("data",data);  
+      dataa =>{
+          console.log("data",dataa);  
+           this.data.createLabel("update"); 
           this.getLabels(); 
     },
     err =>{
@@ -52,5 +55,18 @@ export class LabelComponent implements OnInit {
     })
     
   }
+
+  delete(labels){
+    this.service1.deleteLabel(labels).subscribe(
+      data =>{
+        console.log("data",data);  
+        this.data.deleteLabel("done");
+    },
+    err =>{
+      console.log(err);
+    })
+  }
+ 
+
 
 }

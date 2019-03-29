@@ -54,8 +54,5 @@ export class ProfilePicComponent implements OnInit {
   }
 
 
-
-  
-
   }
   
