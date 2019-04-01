@@ -43,9 +43,9 @@ export class NavbarComponent implements OnInit {
       data => {
         this.getLabels();
       });
-      this.viewService.dellabel.subscribe(
-        data =>{
-           this.getLabels();
+    this.viewService.dellabel.subscribe(
+      data => {
+        this.getLabels();
       });
     this.getProfile();
     this.getLabels();

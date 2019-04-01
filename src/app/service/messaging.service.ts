@@ -7,41 +7,47 @@ import * as firebase from 'firebase';
 // import 'rxjs/add/operator/take';
 import { BehaviorSubject } from 'rxjs';
 @Injectable({
-providedIn: 'root'
+    providedIn: 'root'
 })
 export class MessagingService {
 
-messaging ;
-currentMessage = new BehaviorSubject(null)
-constructor() { 
-try{
-firebase.initializeApp({
-'messagingSenderId': '324312227145'
-});
-this.messaging = firebase.messaging();
-}catch(err){
-console.error('Firebase initialization error', err.stack);
-}
-}
+    messaging;
+    currentMessage = new BehaviorSubject(null)
+    // afuth: any;
+    constructor() {
+        // try{
+        firebase.initializeApp({
+            'messagingSenderId': '1086635450434'
+        });
+        this.messaging = firebase.messaging();
+        // }catch(err){
+        // console.error('Firebase initialization error', err.stack);
+        // }
+    }
 
-getPermission() {
-this.messaging.requestPermission()
-.then(() => {
-return this.messaging.getToken()
-})
-.then(token => {
-})
-.catch((err) => {
-console.log('Unable to get permission to notify.', err);
-});
-}
 
-receiveMessage() {
-this.messaging.onMessage((payload) => {
-console.log("Message received. ", payload);
-this.currentMessage.next(payload)
-});
+    getPermission() {
+        this.messaging.requestPermission()
+            .then(() => {
+                return this.messaging.getToken()
+            })
+            .then(token => {
+                console.log("token after allowing",token);
 
-}
+            })
+            .catch((err) => {
+                console.log('Unable to get permission to notify.', err);
+            });
+    }
+
+
+
+    receiveMessage() {
+        this.messaging.onMessage((payload) => {
+            console.log("Message received. ", payload);
+            this.currentMessage.next(payload)
+        });
+
+    }
 }
 

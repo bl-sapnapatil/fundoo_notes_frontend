@@ -11,36 +11,36 @@ export class ArchiveComponent implements OnInit {
   archiveArray: any;
   items: any;
   archive: any;
-  currentView:boolean;
+  currentView: boolean;
 
-  constructor(private service: noteService, private viewService:ViewChangeServiceService) { }
+  constructor(private service: noteService, private viewService: ViewChangeServiceService) { }
 
   ngOnInit() {
-   this.getArchivedNotes();
-   this.viewService.currentView.subscribe(
-    (response)=>{
-      this.currentView=response;
-    }
-  )
+    this.getArchivedNotes();
+    this.viewService.currentView.subscribe(
+      (response) => {
+        this.currentView = response;
+      }
+    )
 
   }
-  
+
 
   getArchivedNotes() {
     const data = {
       userID: localStorage.getItem('id')
     };
-    console.log("data on archive---25",data);
+    console.log("data on archive---25", data);
     this.service.getArchivedNotes(data).subscribe(
       data => {
-         this.items = data['result'];
-         console.log(this.items);   
+        this.items = data['result'];
+        console.log(this.items);
       },
       error => {
         console.log('error response: ', error);
       }
     )
   }
- 
+
 
 }

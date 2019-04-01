@@ -1,32 +1,39 @@
-
 <div>
-<div class="Collaborators">
-  <h3 class="Collaborators">Collaborators</h3>
-</div>
-<mat-divider></mat-divider>
-<div>
-  <mat-card class="card">
-    <button mat-icon-button class="icon">
-      <mat-icon>person_outline</mat-icon>
-    </button>
-    <div fxLayout="row">
-      <button mat-icon-button class="icon">
-        <mat-icon>person_outline</mat-icon>
-      </button>
+  <div class="Collaborators">
+    <h3 class="Collaborators">Collaborators</h3>
+  </div>
+  <mat-divider></mat-divider>
+  <div>
+    <mat-card class="card">
+      <div>
+        <button mat-icon-button class="icon">
+          <div>
+            <mat-icon class="po">person_outline</mat-icon>
+          </div>
+          <div class="email">
+            <div>{{a}} {{b}}</div>
+            <div class="email1">{{c}}</div>
+          </div>
+        </button>
+      </div>
+      <div fxLayout="row">
+        <button mat-icon-button class="icon">
+          <mat-icon>person_outline</mat-icon>
+        </button>
         <input class="collabinput" matInput [(ngModel)]="email" type="text" name="email"
           placeholder="Person or email To Share with">
-    </div>
+      </div>
       <div>
-          <div>
+        <div>
           <mat-divider></mat-divider>
         </div>
-          <div  class="save">
-            <button mat-raised-button (click)="addCollaborator()">Save</button>
+        <div class="save">
+          <button mat-raised-button (click)="addCollaborator()">Save</button>
 
-            <button mat-raised-button [mat-dialog-close]  class="cancel"> Cancel </button>
-          </div>
+          <button mat-raised-button [mat-dialog-close] class="cancel"> Cancel </button>
         </div>
-      
-  </mat-card>
-</div>
+      </div>
+
+    </mat-card>
+  </div>
 </div>

@@ -24,7 +24,7 @@ export class RegistrationComponent implements OnInit {
   password = new FormControl('', [Validators.required]);
   confirmpassword = new FormControl('', [Validators.required]);
 
- //method to show firstname error message.
+  //method to show firstname error message.
   getFirstnameErrorMessage() {
     return this.Firstname.hasError('required') ? 'Enter first name' : '';
   }
@@ -70,7 +70,7 @@ export class RegistrationComponent implements OnInit {
         },
         err => {
           console.log(err);
-          
+
         });
     }
     catch{

@@ -1,21 +1,13 @@
 .card{
-    margin-left: 140px;
-    margin-top: 25px;
     height:40px;
     border-radius: 8px;
-    width: 500px;
-    
+    margin-top: -19px;  
 }
 .outline{
    border:none;
    outline: none;
    padding-bottom: 20px;
    background:transparent;
-
-}
-.iconcolor{
-    margin-left:-250px;
-    color:dimgray;
 }
 .maindiv{
     margin-top: 50px;
@@ -23,15 +15,30 @@
 }.input{
     border:none;
     outline:none;
-    margin-right: 468px;
-    // padding-bottom: 20px;
-}.maindiv1{
-    margin-block-start: 2px;
-}.card1{
+}
+.card1{
     border-radius: 13px;
     box-shadow: 8px;
     width: 500px;
     border:lightgray solid 1px;
-}.size{
+    margin-bottom: 20px;
+}
+.size{
     margin-left: 159px;
+}
+.maindiv1{
+    margin-top:50px;
+    margin-bottom: 40px;
+}
+.mat-card{
+    margin-top: 20px;
+}
+.text-area{
+    border-color: white;
+}
+.note{
+    margin-top: 20px;
+}
+.maincard{
+    width: 60%
 }

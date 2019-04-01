@@ -9,10 +9,16 @@ import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 })
 export class CollabdialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<CollabdialogComponent>, 
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
+  constructor(public dialogRef: MatDialogRef<CollabdialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+
+  }
   ngOnInit() {
   }
+
+  a = localStorage.getItem('firstName')
+  b = localStorage.getItem('lastName')
+  c = localStorage.getItem('email')
 
 }

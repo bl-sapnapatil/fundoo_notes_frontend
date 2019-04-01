@@ -201,7 +201,7 @@ export class NoteiconsComponent implements OnInit {
 
     this.noteService.getLabels(data).subscribe(
       data => {
-        this.labelArray= data['result'];
+        this.labelArray = data['result'];
         console.log("getlabelsarray", this.labelArray);
       },
       error => {
@@ -216,11 +216,11 @@ export class NoteiconsComponent implements OnInit {
     var addLabel = {
       "noteId": this.items._id,
       "labelData": {
-          "labelName": label.labelName,
-          "labelid":label._id
+        "labelName": label.labelName,
+        "labelid": label._id
       }
     }
-    console.log("label Name",addLabel);
+    console.log("label Name", addLabel);
     // // console.log("label id",this.label._id);
     this.noteService.addLabeltoNote(addLabel).subscribe(
       data => {

@@ -11,26 +11,6 @@
     border:transparent;
     width: 220px;
 }
-// textarea:focus, input:focus{
-//     outline: none;
-// }
-
-// .iconcolor{
-//     background-color:transparent;
-// }
-// a {
-//     position: relative;
-//   }
-//   a.on:after {
-//     content: "Hide";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     right: 0;
-//     bottom: 0;
-//     background: white;
-//   }
-
   .icon{
     border-radius: 50% 50% 50% 50%;
     border-color: gray;
@@ -41,21 +21,6 @@
     zoom: 1
 
 }
-// .minsize{
-//     font-size: 15px;
-//     font-weight: bold;
-//     margin-left: 20px;
-// }
-// .subalign
-// {
-//     margin-right: -20px;
-// }
-// .actioncolor
-// {
-//     color: gray;
-//     border-radius: 5px;
-//     padding: 5px;
-// }
 /deep/.mat-dialog-container{
     height: 251px;
     width: 600px;
@@ -73,4 +38,17 @@
 }
 .Collaborators{
     color: gray;
+}
+.name{
+    margin-left: 55px;
+}
+.email{
+    margin-top: -48px;
+    margin-left: 50px;
+}
+.email1{
+    margin-top: -21px;
+}
+.po{
+    margin-top: 3px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter ,Input} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { noteService } from '../../service/noteservices/noteService';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -16,45 +16,43 @@ export class CardComponent implements OnInit {
   note: any;
   trashcards: any;
   cardsArray: any;
-  currentView:boolean;
+  currentView: boolean;
   d: Date;
   flag: boolean;
   labels: any;
   labelArray: any = [];
-  // reminder: any;
-  constructor(private service: noteService,private viewService:ViewChangeServiceService, public dialog: MatDialog) { }
-  
-  // @Input() items: any;
-  @Input() search:string;
+  constructor(private service: noteService, private viewService: ViewChangeServiceService, public dialog: MatDialog) { }
+
+
+  @Input() search: string;
   ngOnInit() {
     this.getCards();
     console.log("items on cardts", this.items);
     this.viewService.currentView.subscribe(
-      (response)=>{
-        this.currentView=response;
+      (response) => {
+        this.currentView = response;
       })
-    if(this.items.reminder !== null){
+    if (this.items.reminder !== null) {
       this.d = new Date(this.items.reminder)
     }
 
   }
 
-  receivedeleteNoteEvent($event){
-      this.getCards();
-  }
-
-  receivearchiveCardEvent($event){
+  receivedeleteNoteEvent($event) {
     this.getCards();
   }
 
-  receiveaddLabelEvent($event){
+  receivearchiveCardEvent($event) {
+    this.getCards();
+  }
+
+  receiveaddLabelEvent($event) {
     this.getCards();
   }
 
 
   receiveUpdateColorEvent($event) {
     this.setColor1 = $event;
-    //  this.updateColor(note);
     console.log("setcolor:", this.setColor1);
     console.log("notes received:", this.note);
 
@@ -65,7 +63,7 @@ export class CardComponent implements OnInit {
     console.log("color received:", updateColor);
     this.service.updateColor(updateColor).subscribe(
       data => {
-        console.log("data on updateColor--55",data);
+        console.log("data on updateColor--55", data);
         this.getCards()
       },
       error => {
@@ -98,9 +96,9 @@ export class CardComponent implements OnInit {
         console.log('error response: ', error);
       }
     )
-  }  
+  }
 
-  
+
 
 
   getNotes(note) {
@@ -116,16 +114,10 @@ export class CardComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: note,
     });
-  //   const upData = {
-  //     "title":this.note.title,
-  //     "description": this.note.description,
-  // };
-  // console.log("title",this.note.title);
-  // console.log("description",this.note.description);
     dialogRef.afterClosed().subscribe(result => {
       this.service.updateNote(note).subscribe(
         data => {
-          console.log("data in dialog--",data); 
+          console.log("data in dialog--", data);
           this.getCards();
         },
         err => {
@@ -136,11 +128,10 @@ export class CardComponent implements OnInit {
       )
     });
   }
- 
-  removeReminder(note)
-  { 
-    console.log("data in items",note);
-    note.reminder=null;
+
+  removeReminder(note) {
+    console.log("data in items", note);
+    note.reminder = null;
     this.service.updateNote(note).subscribe(
       data => {
         // console.log("data", data);
@@ -154,26 +145,25 @@ export class CardComponent implements OnInit {
   }
 
 
-  removeLabel(label , note)
-  {  
+  removeLabel(label, note) {
     var remlabel = {
-    "noteId":note._id,
-   "labelName": label.labelName
-  }
-  // console.log("ffffffffff",remlabel);
-  
-  this.service.removeLabel(remlabel).subscribe(
-   data => {
+      "noteId": note._id,
+      "labelName": label.labelName
+    }
+    // console.log("ffffffffff",remlabel);
+
+    this.service.removeLabel(remlabel).subscribe(
+      data => {
         // console.log("data",data);  
         this.getCards();
-    },
-    err=>{
-      console.log(err);   
-    })
-    
+      },
+      err => {
+        console.log(err);
+      })
+
   }
 
- 
+
 
 
 }

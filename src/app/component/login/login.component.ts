@@ -43,8 +43,13 @@ export class LoginComponent implements OnInit {
         var data = res['result'];
         console.log("data after login: ",res);
         localStorage.setItem('id',data.id);
-        
         localStorage.setItem('token',(res as any).token);
+         localStorage.setItem('firstName',(data.firstName));
+         localStorage.setItem('lastName',(data.lastName));
+         localStorage.setItem('email',(data.email));
+
+        // localStorage.setItem('loginData',JSON.stringify(data));
+        
         //snackbar to show messages.
         this.snackBar.open("you are logged in!!", "ok", { duration: 5000 });
          this.router.navigateByUrl('navbar');

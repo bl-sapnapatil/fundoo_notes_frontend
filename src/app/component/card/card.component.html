@@ -1,68 +1,64 @@
-<div *ngIf="currentView">
-<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
-  <div *ngFor="let note of cardsArray  | search:search " >
-    <div>
-      <mat-card  class="card" (click)="getNotes(note)"   [style.backgroundColor]="note.color"  >
+<div *ngIf="currentView" class="cards11">
+  <div fxLayout="row wrap" class="allcards" fxLayoutAlign="center center" fxFlex="100">
+    <div *ngFor="let note of cardsArray  | search:search ">
+      <mat-card class="card" (click)="getNotes(note)" [style.backgroundColor]="note.color">
         <div fxLayout="row">
-          <div class="title"  (click)="openDialog(note)">{{note.title}}</div>
+          <div class="title" (click)="openDialog(note)">{{note.title}}</div>
           <div><img src="../../../assets/image/pin.svg" class="pin"></div>
-          
         </div>
         <mat-card-content fxLayout="column">
-          <div >{{note.description}}</div>
+          <div>{{note.description}}</div>
         </mat-card-content>
         <div>
-         <mat-chip-list>
-          <mat-chip *ngIf ="note.reminder">
-            {{note.reminder}}
-           <mat-icon matChipRemove (click)="removeReminder(note)">close</mat-icon>
-          </mat-chip>
-        </mat-chip-list>
+          <mat-chip-list>
+            <mat-chip *ngIf="note.reminder">
+              {{note.reminder}}
+              <mat-icon matChipRemove (click)="removeReminder(note)">close</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
         </div>
         <div class="chip" *ngFor="let label of note.labels">
-          <mat-chip-list >
-           <mat-chip *ngIf ="note.labels">
-             {{label.labelName}}
-            <mat-icon matChipRemove  (click)="removeLabel(label,note)">close</mat-icon>
-           </mat-chip>
-         </mat-chip-list>
-         </div>
-        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)" (deleteNoteEvent)="receivedeleteNoteEvent($event)"   (archiveCardEvent)="receivearchiveCardEvent($event)"  (addLabelEvent)="receiveaddLabelEvent()" [items]="note"></app-noteicons>
-      </mat-card> 
-    </div>
-  </div>
-</div>
-</div>
-
-<div *ngIf="!currentView">
-<div fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
-  <div *ngFor="let note of cardsArray" >
-    <div>
-      <mat-card  class="width" (click)="getNotes(note)"   [style.backgroundColor]="note.color">
-        <div fxLayout="row">
-          <div class="title"  (click)="openDialog(note)">{{note.title}}</div>
-          <div><img src="../../../assets/image/pin.svg" class="pin"></div>
-          <!-- <div *ngIf=" label != undefined"> -->
-          <div class="chip" *ngFor="let label of note.labels">
-            <mat-chip-list >
-             <mat-chip *ngIf ="note.labels">
-               {{label.labelName}}
-              <mat-icon matChipRemove  (click)="removeLabel(note)">close</mat-icon>
-             </mat-chip>
-           </mat-chip-list>
-           </div> 
-          <!-- </div> -->
+          <mat-chip-list>
+            <mat-chip *ngIf="note.labels">
+              {{label.labelName}}
+              <mat-icon matChipRemove (click)="removeLabel(label,note)">close</mat-icon>
+            </mat-chip>
+          </mat-chip-list>
         </div>
-        <mat-card-content fxLayout="column">
-          <div >{{note.description}}</div>
-        </mat-card-content>
-        <app-noteicons  (updateColorEvent) = "receiveUpdateColorEvent($event)"  (deleteNoteEvent)="receivedeleteNoteEvent($event)"  (archiveCardEvent)="receivearchiveCardEvent($event)" [items]="note"></app-noteicons>
-      
+        <app-noteicons (updateColorEvent)="receiveUpdateColorEvent($event)"
+          (deleteNoteEvent)="receivedeleteNoteEvent($event)" (archiveCardEvent)="receivearchiveCardEvent($event)"
+          (addLabelEvent)="receiveaddLabelEvent()" [items]="note"></app-noteicons>
       </mat-card>
     </div>
   </div>
 </div>
+
+<div *ngIf="!currentView">
+  <div fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
+    <div *ngFor="let note of cardsArray">
+      <div>
+        <mat-card class="width" (click)="getNotes(note)" [style.backgroundColor]="note.color">
+          <div fxLayout="row">
+            <div class="title" (click)="openDialog(note)">{{note.title}}</div>
+            <div><img src="../../../assets/image/pin.svg" class="pin"></div>
+            <div class="chip" *ngFor="let label of note.labels">
+              <mat-chip-list>
+                <mat-chip *ngIf="note.labels">
+                  {{label.labelName}}
+                  <mat-icon matChipRemove (click)="removeLabel(note)">close</mat-icon>
+                </mat-chip>
+              </mat-chip-list>
+            </div>
+          </div>
+          <mat-card-content fxLayout="column">
+            <div>{{note.description}}</div>
+          </mat-card-content>
+          <app-noteicons (updateColorEvent)="receiveUpdateColorEvent($event)"
+            (deleteNoteEvent)="receivedeleteNoteEvent($event)" (archiveCardEvent)="receivearchiveCardEvent($event)"
+            [items]="note"></app-noteicons>
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-

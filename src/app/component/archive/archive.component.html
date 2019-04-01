@@ -12,7 +12,7 @@
             <div>{{item.description}}</div>
 
           </mat-card-content>
-          <app-noteicons  (archiveCardEvent)="receivearchiveCardEvent($event)"></app-noteicons>
+          <app-noteicons (archiveCardEvent)="receivearchiveCardEvent($event)"></app-noteicons>
         </mat-card>
       </div>
     </div>
@@ -28,7 +28,6 @@
           [style.backgroundColor]="item.color">
           <div>
             <div class="title">{{item.title}}</div>
-
           </div>
           <mat-card-content fxLayout="column">
             <div>{{item.description}}</div>

@@ -1,19 +1,19 @@
 <!-- <div fxFlex="100"> -->
 <mat-toolbar class="mat-toolbar">
-    <div fxFlex="4">
+    <div fxFlex="4" fxFlex.xs="10">
         <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon matTooltip="Main menu" class="menu">menu</mat-icon>
         </button>
     </div>
-    <div fxFlex="5">
+    <div fxFlex="5" fxHide.xs>
         <img src='../../../assets/image/keep_48dp (1).png' alt="" />
     </div>
-    <div fxFlex="17">
+    <div fxFlex="17" fxHide.xs>
         <span class="menu">{{titleName}}</span>
         <span class="menu" *ngIf="titleName== null">FundooNotes</span>
     </div>
 
-    <div class="searchdiv" fxFlex="70" fxLayout="row" fxLayoutAlign="center center">
+    <div class="searchdiv" fxFlex="50" fxFlex.xs="80" fxLayout="row" fxLayoutAlign="center center">
         <button mat-icon-button>
             <mat-icon>search</mat-icon>
         </button>
@@ -22,14 +22,14 @@
     </div>
 
 
-    <div fxFlex="5">
+    <div fxFlex="5" fxFlex.xs="5" fxHide.xs>
         <button mat-icon-button (click)="setGridAndListView()">
             <mat-icon *ngIf="show">view_stream</mat-icon>
             <mat-icon *ngIf="!show">view_module</mat-icon>
         </button>
     </div>
 
-    <div>
+    <div fxFlex.xs="5">
         <button mat-icon-button [matMenuTriggerFor]="menu2">
             <mat-icon matTooltip="Google account" class="menu">account_circle</mat-icon>
         </button>
@@ -84,12 +84,12 @@
                     <h5 class="color">LABELS</h5>
                 </span>
                 <div>
-                    <div *ngFor="let labels of label" class="labelsheight"  fxLayout="row">
+                    <div *ngFor="let labels of label" class="labelsheight" fxLayout="row">
                         <img src="../../../assets/image/labelsicon.svg" style="margin-left: 8px;">
                         <span class="labels1">{{labels.labelName}}</span>
                     </div>
                 </div>
-                <mat-list-item (click)="editLabels()" id="note"  (click)="openDialog1()">
+                <mat-list-item (click)="editLabels()" id="note" (click)="openDialog1()">
                     <img src="../../../assets/image/label.svg" class="icon">
                     <label class="title">Edit labels</label>
 

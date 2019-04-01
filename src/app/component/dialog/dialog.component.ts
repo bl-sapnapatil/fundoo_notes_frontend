@@ -17,35 +17,35 @@ export class DialogComponent implements OnInit {
   color: any;
   delete: boolean = false;
   archive: boolean = false;
-  
+
   constructor(public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,private service: noteService) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private service: noteService) {
     console.log("data", data);
     this.title = new FormControl(data.title)
     this.description = new FormControl(data.description)
   }
 
   ngOnInit() {
-    console.log("data",this.data);
-    
+    console.log("data", this.data);
+
   }
-   
-  receiveUpdateColorForDialogBox($event){
+
+  receiveUpdateColorForDialogBox($event) {
     this.color = $event;
     this.data.color = this.color;
   }
 
-  receivedeleteNoteEvent($event){
-    console.log("event",event);
-    
-     this.delete = $event;
+  receivedeleteNoteEvent($event) {
+    console.log("event", event);
+
+    this.delete = $event;
     this.delete = true;
   }
 
-  receiveArchiveCardEvent($event){
+  receiveArchiveCardEvent($event) {
     this.archive = true;
   }
-  
+
 
   close() {
     this.data.title = this.title.value

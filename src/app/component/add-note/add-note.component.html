@@ -1,29 +1,29 @@
-<div fxLayout="column" fxFlex fxLayoutGap="50px" fxLayoutAlign="space-around center" class="color">
-  <div fxFlex="100" (click)="flip()" *ngIf="flag==true" class="maindiv1">
-    <mat-card fxFlex="100" class="card" fxLayout="row" fxLayoutAlign="space-around center">
-      <div data-text="Take a note..." contenteditable="true">
-      </div>
-      <input type="text" class="input" placeholder="Take a note...">
-      <div fxLayoutAlign="end center" class="iconcolor">
-        <!-- <mat-icon matTooltip="New list">check_box</mat-icon> -->
+<div fxLayout="column">
+  <div fxFlex="100" (click)="flip()" *ngIf="flag==true" fxLayoutAlign="space-around start" class="maindiv1"
+    fxFlex.xs="95">
+    <mat-card fxFlex="50" fxFlex.xs="90" fxLayoutAlign.xs="space-around center" class="card" fxLayout="row"
+      fxLayoutAlign="center center">
+      <div fxFlex="65"> <input type="text" class="input" placeholder="Take a note..."> </div>
+      <div fxFlex="35" class="iconcolor" fxLayout="row" fxLayoutAlign="end end">
         <img src="../../../assets/image/download (6).svg">
         <img src="../../../assets/image/download (7).svg">
         <img src="../../../assets/image/download (8).svg">
       </div>
     </mat-card>
-    
+
   </div>
 
+
   <div fxFlex="100" fxLayoutAlign="space-around start" class="maindiv" *ngIf="flag==false">
-    <mat-card fxFlex="100" fxLayoutAlign="space-between start" class="card1" fxLayout="column"
-      [style.backgroundColor]="setColor">
+    <mat-card fxFlex="50" class="card1" fxFlex.xs="90" fxLayoutAlign.xs="space-around center"
+      fxLayoutAlign="space-between start" class="card1" fxLayout="column" [style.backgroundColor]="setColor">
       <input type="text" [formControl]="title" class="outline" placeholder="Title">
       <div>
         <textarea matTextareaAutosize [formControl]="description" class="outline"
           placeholder="Take a note..."></textarea>
       </div>
       <div>
-        <div fxLayout="row" fxLayoutAlign="space-between end">
+        <div fxLayout="row" fxFlex="80">
           <app-noteicons (setColorEvent)="receiveColorEvent($event)"></app-noteicons>
           <div fxLayout="row" fxLayoutAlign="end end">
             <button mat-button (click)="flip()" (click)=" addNote()" class="size">

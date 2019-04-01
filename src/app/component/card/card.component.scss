@@ -1,7 +1,6 @@
 
 .title{
     margin-bottom: 12px;
-    // height: 60px;
     width: 230px;
     height: 29px;
    }
@@ -9,7 +8,11 @@
     border-radius: 10px;
     border: lightgray hidden 1px;
     width: 230px;
-    margin-bottom:20px
+    margin-bottom:20px;
+    margin-left: 20px;
+}
+.allcards{
+    margin-left:100px;
 }
 .pin{
     color: gray;
@@ -19,5 +22,12 @@
     width: 400px;
     border: lightgray hidden 1px;
     border-radius: 10px;
-    margin-left: 150px
+}
+@media only screen and (max-width:600px){
+    .cards11{
+        flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    margin-right: 236px;
+    }
 }

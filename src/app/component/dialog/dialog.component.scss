@@ -2,28 +2,20 @@
     padding: 10px;
     height:180px;
     width:650px;
-    // border-radius: 15px;
-    // border:lightgray solid 1px;
 }
 .closebutton{
     margin-top: 68px;
     margin-left: 303px;
     border: none;
-    // background-color: white;
-
 }
 .outline{
     border:none;
     outline: none;
     padding-bottom: 20px;
     background:transparent;
- 
  }
  /deep/.mat-dialog-container{
-    //  border-radius: 15px;
-    //  border: lightgray solid 2px;
     display: block;
-
     padding: 0px;
     border-radius: 10px;
     box-sizing: border-box;

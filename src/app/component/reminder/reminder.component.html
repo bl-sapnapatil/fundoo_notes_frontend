@@ -1,26 +1,26 @@
 <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="25px" fxFlex="100">
-  <div *ngFor="let item of items"  >
+  <div *ngFor="let item of items">
     <div>
-      <mat-card fxFlex="100" style="width:300px; margin-bottom:20px" class="chip"  [style.backgroundColor]="item.color" >
-        <div >
-          <div class="title">{{item.title}}</div> 
+      <mat-card fxFlex="100" style="width:300px; margin-bottom:20px" class="chip" [style.backgroundColor]="item.color">
+        <div>
+          <div class="title">{{item.title}}</div>
         </div>
         <div>
-        <mat-card-content fxLayout="column" class="reminder">
-          <div >{{item.description}}</div>
-          <div class="chip">
-            <mat-chip-list >
-             <mat-chip *ngIf ="item.reminder">
-               {{item.reminder}}
-              <mat-icon matChipRemove (click)="removeReminder(note)">close</mat-icon>
-             </mat-chip>
-           </mat-chip-list>
-           </div>
-        </mat-card-content>
+          <mat-card-content fxLayout="column" class="reminder">
+            <div>{{item.description}}</div>
+            <div class="chip">
+              <mat-chip-list>
+                <mat-chip *ngIf="item.reminder">
+                  {{item.reminder}}
+                  <mat-icon matChipRemove (click)="removeReminder(note)">close</mat-icon>
+                </mat-chip>
+              </mat-chip-list>
+            </div>
+          </mat-card-content>
         </div>
-        <app-noteicons ></app-noteicons>
+        <app-noteicons></app-noteicons>
       </mat-card>
-     
+
     </div>
   </div>
 </div>

@@ -80,13 +80,13 @@
     <mat-menu #addlabel="matMenu" class="addlabel" (click)="$event.stopPropagation()">
         <label class="labelNote">Label note</label>
         <div class="size">
-            <input matInput placeholder="Enter label name" class="labelNote"  (click)="$event.stopPropagation()">
+            <input matInput placeholder="Enter label name" class="labelNote" (click)="$event.stopPropagation()">
         </div>
         <div *ngIf="labelArray != undefined">
-        <div *ngFor="let label of labelArray" class="labels12" (click)="addLabel(label)">
-            <mat-checkbox>{{label.labelName}}</mat-checkbox>
+            <div *ngFor="let label of labelArray" class="labels12" (click)="addLabel(label)">
+                <mat-checkbox>{{label.labelName}}</mat-checkbox>
+            </div>
         </div>
-    </div>
     </mat-menu>
 
 

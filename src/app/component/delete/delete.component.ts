@@ -19,18 +19,18 @@ export class DeleteComponent implements OnInit {
     const data = {
       userID: localStorage.getItem('id')
     };
-    console.log("data on bin--22",data);
+    console.log("data on bin--22", data);
     this.service.getBin(data).subscribe(
       data => {
-         this.items = data['result'];
-         console.log(this.items);
-           
+        this.items = data['result'];
+        console.log(this.items);
+
       },
       error => {
         console.log('error response: ', error);
       }
     )
   }
- 
+
 
 }

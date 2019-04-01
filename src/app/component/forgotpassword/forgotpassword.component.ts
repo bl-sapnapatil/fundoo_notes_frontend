@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./forgotpassword.component.scss']
 })
 export class ForgotpasswordComponent implements OnInit {
-  constructor(private httpService: HttpService,private snackBar: MatSnackBar) { }
+  constructor(private httpService: HttpService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -22,23 +22,23 @@ export class ForgotpasswordComponent implements OnInit {
 
   //sendlink method which sends the resetlink in email
   sendlink() {
-    try{
+    try {
 
-    if(this.email.value == "") throw "fields cannot be empty"
+      if (this.email.value == "") throw "fields cannot be empty"
 
-    var reqbody = {
-      email: this.email.value
-    }
-    this.httpService.postUser(reqbody, '/forgotpassword').subscribe(
-      res => {
-        console.log(res);
-        //snackbar is used to show message.
-        this.snackBar.open("link sent to your registered email id!!", "ok", { duration: 5000 });
-      },
-      err => {
-        console.log(err)
+      var reqbody = {
+        email: this.email.value
+      }
+      this.httpService.postUser(reqbody, '/forgotpassword').subscribe(
+        res => {
+          console.log(res);
+          //snackbar is used to show message.
+          this.snackBar.open("link sent to your registered email id!!", "ok", { duration: 5000 });
+        },
+        err => {
+          console.log(err)
 
-      });
+        });
     }
     catch{
       this.snackBar.open("email cannot be empty", "", { duration: 5000 });

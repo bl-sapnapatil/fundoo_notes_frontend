@@ -13,7 +13,7 @@
     background: rgba(0,0,0,0);
     height:40px;
     border-radius: 8px;
-  //   margin-left: 150px;
+    margin-left: 150px;
   }
   .searchdiv{
    border:none;
@@ -21,7 +21,20 @@
    background: rgba(0,0,0,0.04);
    height:40px;
    border-radius: 8px;
-   margin-right: 180px;
+
+  }
+
+  @media screen and (min-width : 700px){
+    .searchdiv{
+      border:none;
+      outline:none;
+      background: rgba(0,0,0,0.04);
+      height:40px;
+      border-radius: 8px;
+       margin-right: 180px;
+       max-width: 100%;
+
+     }
   }
   .iconcolor{
       color: gray;
@@ -36,7 +49,7 @@
   }
   .color{
     color:gray;
-    margin-left: 29px;
+    // margin-left: 29px;
 }
 .sidenav{
   width: 250px;
@@ -62,14 +75,7 @@
     /deep/.mat-menu-panel{
     border-radius: 9px;
     outline: 0;
-    // height: 227px;
-    // width: 285px;
-    // width: 320px;
-    // width: 307px;
-    // height: 251px;
-     width: 307px;
-    // height: 211px;
-    // width: 363px;
+    width: 307px;
     height: 224px;
 }
   
