@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MessagingService } from './service/messaging.service';
+// import { MessagingService } from './service/messaging.service';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +10,14 @@ export class AppComponent {
   title = 'fundooClient';
   message;
 
-  constructor(private msgservice: MessagingService){}
+  constructor(
+    // private msgservice: MessagingService
+    ){}
 
   ngOnInit(){
-    this.msgservice.getPermission();
-    this.msgservice.receiveMessage();
-    this.message= this.msgservice.currentMessage
+    // this.msgservice.getPermission();
+    // this.msgservice.receiveMessage();
+    // this.message= this.msgservice.currentMessage
   }
 }
 
