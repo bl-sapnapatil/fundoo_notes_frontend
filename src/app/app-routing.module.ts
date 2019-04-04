@@ -73,10 +73,6 @@ const routes: Routes = [
         path: 'search',
         component:  SearchComponent
       },
-      // {
-      //   path:'label',
-      //   component:LabelComponent
-      // }
     ]
   },
 ];
